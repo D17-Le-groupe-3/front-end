@@ -5,6 +5,11 @@ export interface User {
   lastName: string
 }
 
+export interface Credentials {
+  email: string;
+  password: string;
+}
+
 export interface Department {
   id: number,
   label: string
