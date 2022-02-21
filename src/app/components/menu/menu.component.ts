@@ -9,7 +9,7 @@ export class MenuComponent implements OnInit {
 
   menu : String[] = [];
   constructor() { }
-  profil = "manager";
+  profil = "salarie";
 
   ngOnInit(): void {
   }
