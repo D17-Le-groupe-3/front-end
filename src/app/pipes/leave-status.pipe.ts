@@ -2,7 +2,7 @@ import { LeaveStatus } from './../models';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'statusString'
+  name: 'leaveStatusLabel'
 })
 export class LeaveStatusPipe implements PipeTransform {
 
