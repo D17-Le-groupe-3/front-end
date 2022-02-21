@@ -23,8 +23,9 @@ export class DisplayLeavesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.dataSource.sort = this.sort;
-      });
+  }
+
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
   }
 }

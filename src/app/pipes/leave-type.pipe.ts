@@ -11,7 +11,7 @@ export class LeaveTypePipe implements PipeTransform {
         case LeaveType.PAID_LEAVE:
             return "Congés Payés";
         case LeaveType.UNPAID_LEAVE:
-            return "Congés non payés";
+            return "Congés sans solde";
         default:
           return "RTT";
       }
