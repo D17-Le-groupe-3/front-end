@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Leave } from 'src/app/models';
 import { LeavesService } from 'src/app/services/leaves.service';
 
@@ -9,15 +11,20 @@ import { LeavesService } from 'src/app/services/leaves.service';
 })
 
 export class DisplayLeavesComponent implements OnInit {
+  @ViewChild(MatSort) sort!: MatSort;
   displayedColumns: string[] = ['startDate', 'endDate', 'type', 'status', 'actions'];
-  dataSource!: Leave[];
-  htmlAction: any;
-  //passer d'un type à un autre
+  dataSource = new MatTableDataSource<Leave>();
 
   constructor(private leavesService: LeavesService) {
-    this.leavesService.getLeavesByEmployee().subscribe(data => this.dataSource = data);
-   }
+    this.leavesService.getLeavesByEmployee().subscribe({
+      next: (leaves) => this.dataSource.data = leaves,
+      error: (e) => console.log(e)
+    });
+  }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.dataSource.sort = this.sort;
+      });
   }
 }

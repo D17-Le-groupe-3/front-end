@@ -18,7 +18,7 @@
   },
   "absences": [
     {
-      "startDate": "12/03/2022",
+      "startDate": "11/03/2022",
       "endDate": "14/03/2002",
       "type": "RTT",
       "status": 0
@@ -30,13 +30,13 @@
       "status": 1
     },
     {
-      "startDate": "12/03/2022",
+      "startDate": "13/03/2022",
       "endDate": "14/03/2002",
       "type": 1,
       "status": 2
     },
     {
-      "startDate": "12/03/2022",
+      "startDate": "14/03/2022",
       "endDate": "14/03/2002",
       "type": "RTT",
       "status": 3

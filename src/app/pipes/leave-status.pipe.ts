@@ -11,7 +11,7 @@ export class LeaveStatusPipe implements PipeTransform {
       case LeaveStatus.INITIAL:
           return "INITIALE";
       case LeaveStatus.PENDING_VALIDATION:
-          return "EN_ATTENTE_VALIDATION";
+          return "EN ATTENTE VALIDATION";
       case LeaveStatus.VALIDATED:
           return "VALIDEE";
       case LeaveStatus.REJECTED:
