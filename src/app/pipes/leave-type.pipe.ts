@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { LeaveType } from '../models';
 
 @Pipe({
-  name: 'pipeType'
+  name: 'pipeString'
 })
 export class LeaveTypePipe implements PipeTransform {
 
