@@ -15,15 +15,18 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,    
+    HomeComponent,
     HeaderComponent,
     MenuComponent,
     CompanyHolidayComponent,
-    CompanyHolidayPipe
+    CompanyHolidayPipe,
+    LeaveValidationComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatTableModule,
     MatSortModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
