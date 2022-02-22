@@ -2,24 +2,32 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import {MatSelectModule} from "@angular/material/select";
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {HomeComponent} from './components/home/home.component';
 import {HeaderComponent} from './components/header/header.component';
 import {MenuComponent} from './components/menu/menu.component';
 import {CompanyHolidayComponent} from './components/company-holiday/company-holiday.component';
+import {HomeComponent} from './components/home/home.component';
+
+import { DisplayLeavesComponent } from './components/display-leaves/display-leaves.component';
+import { LeaveTypePipe } from './pipes/leave-type.pipe';
+import { LeaveStatusPipe } from './pipes/leave-status.pipe';
 import {CompanyHolidayPipe} from './pipes/company-holiday.pipe';
-import {MatSelectModule} from "@angular/material/select";
-import {MatTableModule} from "@angular/material/table";
-import {MatSortModule} from "@angular/material/sort";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
+
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,    
+    HomeComponent,
+    DisplayLeavesComponent,
+    LeaveTypePipe,
+    LeaveStatusPipe,
     HeaderComponent,
     MenuComponent,
     CompanyHolidayComponent,
@@ -28,12 +36,12 @@ import {MatButtonModule} from "@angular/material/button";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    MatSelectModule,
     MatTableModule,
-    MatSortModule,
+    HttpClientModule,
     MatIconModule,
+    MatSortModule,
+    MatSelectModule,
     MatButtonModule
   ],
   providers: [],
