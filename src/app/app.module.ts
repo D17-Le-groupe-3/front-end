@@ -7,13 +7,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSelectModule} from "@angular/material/select";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 import {HeaderComponent} from './components/header/header.component';
 import {MenuComponent} from './components/menu/menu.component';
 import {CompanyHolidayComponent} from './components/company-holiday/company-holiday.component';
 import {HomeComponent} from './components/home/home.component';
-
 import { DisplayLeavesComponent } from './components/display-leaves/display-leaves.component';
+import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
+
 import { LeaveTypePipe } from './pipes/leave-type.pipe';
 import { LeaveStatusPipe } from './pipes/leave-status.pipe';
 import {CompanyHolidayPipe} from './pipes/company-holiday.pipe';
@@ -31,18 +33,20 @@ import {AppComponent} from './app.component';
     HeaderComponent,
     MenuComponent,
     CompanyHolidayComponent,
-    CompanyHolidayPipe
+    CompanyHolidayPipe,
+    LeaveValidationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTableModule,
     HttpClientModule,
+    MatTableModule,
     MatIconModule,
+    MatButtonModule,
+    MatSnackBarModule
     MatSortModule,
     MatSelectModule,
-    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
