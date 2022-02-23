@@ -16,6 +16,10 @@ export class LeavesService {
 
   constructor(private http: HttpClient) { }
 
+  getLeavesByEmployee(): Observable<Leave[]> {
+    return this.http.get<Leave[]>(environment.backendUrl + "/leaves?userId=");
+  }
+
   getToValidateByDepartment(department: Department): Observable<Leave[]> {
     return this.http.get<Leave[]>(environment.backendUrl + '/leaves/to-validate?departmentId=' + department.id)
   }
