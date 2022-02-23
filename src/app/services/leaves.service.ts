@@ -20,6 +20,10 @@ export class LeavesService {
     return this.http.get<Leave[]>(environment.backendUrl + "/leaves?userId=");
   }
 
+  getLeavesByEmployeeMonthYear(employeeId: number, month: string, year: string): Observable<Leave[]> {
+    return this.http.get<Leave[]>(`${environment.backendUrl}/leaves?userId=${employeeId}&month=${month}&year=${year}`);
+  }
+
   getToValidateByDepartment(department: Department): Observable<Leave[]> {
     return this.http.get<Leave[]>(environment.backendUrl + '/leaves/to-validate?departmentId=' + department.id)
   }
@@ -34,9 +38,5 @@ export class LeavesService {
     return this.http.post<Leave>(environment.backendUrl + '/leaves/reject',
       { leaveId: leaveId },
       this.postOptions)
-  }
-
-  getLeavesByEmployeeMonthYear(employeeId: number, month: string, year: string): Observable<Leave[]> {
-    return this.http.get<Leave[]>(`${environment.backendUrl}/leaves?userID=${employeeId}&month=${month}&year=${year}`);
   }
 }

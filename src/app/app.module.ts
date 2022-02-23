@@ -27,6 +27,7 @@ import { LeavePlanningComponent } from './components/leave-planning/leave-planni
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
@@ -59,9 +60,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatSortModule,
     MatSelectModule,
     MatButtonModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatLuxonDateModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue:{useUtc: true}}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
