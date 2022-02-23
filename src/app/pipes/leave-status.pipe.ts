@@ -11,7 +11,6 @@ export class LeaveStatusPipe implements PipeTransform {
       case LeaveStatus.INITIAL:
         return "Initiale";
       case LeaveStatus.PENDING_VALIDATION:
-        console.log("EN ATTENTE VALIDATION");
         return "En attente de validation";
       case LeaveStatus.VALIDATED:
         return "Validée";
