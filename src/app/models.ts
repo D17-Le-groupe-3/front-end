@@ -7,16 +7,17 @@ export interface Leave {
 }
 
 export enum LeaveType {
-	PAID_LEAVE,
-	UNPAID_LEAVE,
-	RTT
+	PAID_LEAVE="PAID_LEAVE",
+	UNPAID_LEAVE="UNPAID_LEAVE",
+	RTT="RTT"
 }
 
 export enum LeaveStatus {
-	INITIAL,
-	PENDING_VALIDATION,
-	VALIDATED,
-	REJECTED
+	INITIAL="INITIAL",
+	PENDING_VALIDATION="PENDING_VALIDATION",
+	VALIDATED="VALIDATED",
+	REJECTED="REJECTED"
+}
 
 export interface CompanyHoliday {
   id: number,
