@@ -17,6 +17,7 @@ export enum LeaveStatus {
 	PENDING_VALIDATION,
 	VALIDATED,
 	REJECTED
+}
 
 export interface CompanyHoliday {
   id: number,

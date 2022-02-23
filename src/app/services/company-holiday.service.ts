@@ -14,6 +14,10 @@ export class CompanyHolidayService {
   getByYear(year: string): Observable<CompanyHoliday[]> {
     return this.http.get<CompanyHoliday[]>(environment.backendUrl + '/company-holidays/' + year);
   }
+
+  getByMonthAndYear(month: string, year: string): Observable<CompanyHoliday[]> {  
+    return this.http.get<CompanyHoliday[]>(`${environment.backendUrl}/company-holidays?month=${month}&year=${year}`);
+  }
 }
 
 
