@@ -17,7 +17,8 @@
 		{
 			"id": 1,
 			"date": "2022-02-12",
-			"type": "PUBLIC_HOLIDAY"
+			"type": "PUBLIC_HOLIDAY",
+			"comment": "Oh hi !"
 		}
 	]
 }

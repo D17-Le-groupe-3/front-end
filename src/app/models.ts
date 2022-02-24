@@ -8,13 +8,24 @@ export interface Department {
   label: string
 }
 
-export interface Leave {
-  id: number,
-  startDate: Date,
-  endDate: Date,
-  type: LeaveType,
-  status: LeaveStatus,
-  user: User
+export class Leave {
+  id: number;
+  startDate: Date;
+  endDate: Date;
+  type: LeaveType;
+  status: LeaveStatus;
+  user: User;
+
+  constructor(id: number, startDate: Date, endDate: Date, type: LeaveType, 
+    status: LeaveStatus,user : User) {
+    this.id = id;
+    this.startDate = new Date(startDate);
+    this.endDate = new Date(endDate);
+    this.type = type;
+    this.status = status;
+    this.user = user;
+    
+  }
 }
 
 export enum LeaveType {
@@ -30,11 +41,19 @@ export enum LeaveStatus {
   REJECTED = 'REJECTED'
 }
 
-export interface CompanyHoliday {
-  id: number,
-  date: Date,
-  type: CompanyHolidayType,
-  comment: string
+export class CompanyHoliday {
+  id: number;
+  date: Date;
+  type: CompanyHolidayType;
+  comment: string;
+
+  constructor(id: number, date: Date, type: CompanyHolidayType, comment: string) {
+    this.id = id;
+    this.date = new Date(date);
+    this.type = type;
+    this.comment = comment;
+    console.log("hello");
+  }
 }
 
 export enum CompanyHolidayType {

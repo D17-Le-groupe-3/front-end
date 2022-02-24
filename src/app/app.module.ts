@@ -10,7 +10,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 import dayGridPlugin from '@fullcalendar/daygrid';
-//import interactionPlugin from '@fullcalendar/interaction';
+import interactionPlugin from '@fullcalendar/interaction';
 
 import {HeaderComponent} from './components/header/header.component';
 import {MenuComponent} from './components/menu/menu.component';
@@ -27,11 +27,10 @@ import { LeavePlanningComponent } from './components/leave-planning/leave-planni
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-  dayGridPlugin
-  //interactionPlugin
+  dayGridPlugin,
+  interactionPlugin
 ]);
 
 @NgModule({
@@ -61,11 +60,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatSelectModule,
     MatButtonModule,
     FullCalendarModule,
-    MatLuxonDateModule
   ],
-  providers: [
-    {provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue:{useUtc: true}}
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
