@@ -24,7 +24,7 @@ export class LeavesService {
     return this.http.delete<Leave>(environment.backendUrl + `/leaves/${idLeave}`);
   }
 
-  getLeavesByEmployeeMonthYear(employeeId: number, month: string, year: string): Observable<Leave[]> {
+  getLeavesByEmployeeMonthAndYear(employeeId: number, month: number, year: number): Observable<Leave[]> {
     return this.http.get<Leave[]>(`${environment.backendUrl}/leaves?userId=${employeeId}&month=${month}&year=${year}`);
   }
 

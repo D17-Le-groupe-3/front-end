@@ -23,8 +23,7 @@ export class LeavePlanningComponent implements OnInit {
     },
     showNonCurrentDates: false,
     datesSet: (dateInfo: DatesSetArg) => {
-      console.log(dateInfo.start.getMonth());
-      console.log(dateInfo.end);
+      this.loadData(dateInfo.start.getMonth() + 1, dateInfo.start.getFullYear())
     }
   };
 
@@ -36,11 +35,13 @@ export class LeavePlanningComponent implements OnInit {
 
   ngAfterViewInit(): void{
     this.calendarApi = this.calendarComponent.getApi();
-    this.loadData();
+    //this.loadData();
   }
 
-  loadData(): void {
-    this.leaveService.getLeavesByEmployee().subscribe({
+  loadData(month: number, year: number): void {
+    if (this.calendarApi)
+      this.calendarApi.removeAllEvents();
+    this.leaveService.getLeavesByEmployeeMonthAndYear(5, month, year).subscribe({
       next: (leaves: Leave[]) => {
         leaves.forEach(l => {
           l = new Leave(l.id,l.startDate,l.endDate,l.type,l.status,l.user);
