@@ -43,3 +43,12 @@ export enum CompanyHolidayType {
   COMPANY_RTT,
   PUBLIC_HOLIDAY
 }
+
+export interface LeaveCounters {
+  userId: number,
+  remainingPaidLeaves: number,
+  paidLeaveTaken: number,
+  remainingRtt: number,
+  RttTaken: number,
+  unpaidLeaveTaken: number
+}
