@@ -48,10 +48,6 @@ export class DisplayLeavesComponent implements OnInit {
     })
   }
 
-  ennableEdition() {
-
-  }
-
   disableDelete(row: Leave) {
     let flagIsDesabled = false;
     const startDate = DateTime.fromJSDate(new Date(row.startDate));
