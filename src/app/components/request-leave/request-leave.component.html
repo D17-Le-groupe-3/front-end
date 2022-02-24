@@ -12,8 +12,8 @@
           <mat-form-field appearance="fill">
             <mat-label>Dates souhaitées</mat-label>
             <mat-date-range-input [rangePicker]="picker" [min]="minDate">
-              <input  matStartDate [formControl]="startDateControl" required="" [min]="minDate">
-              <input  matEndDate [formControl]="endDateControl" required="">
+              <input  matStartDate formControlName="startDate" required="" [min]="minDate">
+              <input  matEndDate formControlName="endDate" required="">
             </mat-date-range-input>
 
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -49,13 +49,10 @@
           <div class="m-1 mt-3">
             <p><button mat-raised-button color="primary">Valider</button></p>
             <button mat-raised-button color="warn">Annuler</button>
-            {{leaveForm.status}}
+
           </div>
 
         </div>
-
-
-
       </div>
     </div>
 

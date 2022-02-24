@@ -29,8 +29,6 @@ export class RequestComponent implements OnInit{
   newLeave: Partial<Leave> = {};
   leaveForm!: FormGroup;
   leaveTypeControl = new FormControl('', [Validators.required]);
-  startDateControl = new FormControl('', [Validators.required]);
-  endDateControl = new FormControl('', [Validators.required]);
   leaveMotifControl= new FormControl('');
 
   public leaveTypeEnum = LeaveType;
@@ -53,7 +51,7 @@ export class RequestComponent implements OnInit{
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
       leaveType: this.leaveTypeControl,
-      leaveMotif : this.leaveMotifControl
+      leaveReason : this.leaveMotifControl
 
     })
 
@@ -79,7 +77,7 @@ export class RequestComponent implements OnInit{
       startDate: this.leaveForm.value.startDate,
       endDate: this.leaveForm.value.endDate,
       type: this.leaveForm.value.leaveType,
-      reason: "",
+      reason: this.leaveForm.value.leaveReason,
       userId: 1
 
     })
