@@ -1,6 +1,7 @@
 import { LeaveCountersService } from './../../services/leave-counters.service';
 import { Component, OnInit } from '@angular/core';
 import { LeaveCounters } from 'src/app/models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-leave-counters',
@@ -10,10 +11,12 @@ import { LeaveCounters } from 'src/app/models';
 export class LeaveCountersComponent implements OnInit {
 
   leaveCounters!: LeaveCounters;
+
   constructor(private leaveCountersService: LeaveCountersService) {
+
     this.leaveCountersService.getLeaveCounterByEmployee(2).subscribe({
-      next: (lCounters) => this.leaveCounters = lCounters,
-      error: (e) => console.log(e)
+       next : (lCounters) => this.leaveCounters = lCounters,
+      error : (e) => console.log(e)
     });
   }
 
