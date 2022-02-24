@@ -2,11 +2,18 @@ import { RequestLeaveService } from './../../services/request-leave.service';
 import { LeaveType } from '../../models';
 import { Leave } from '../../models';
 import { Component, OnInit} from "@angular/core";
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ErrorStateMatcher } from '@angular/material/core';
 
+class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: AbstractControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
 
+}
 
 @Component({
 
@@ -18,16 +25,14 @@ import { Router } from '@angular/router';
 })
 
 export class RequestComponent implements OnInit{
-
+  matcherType = new MyErrorStateMatcher();
   newLeave: Partial<Leave> = {};
   leaveForm!: FormGroup;
-  // leaveForm = this.formBuilder.group({
-
-  //   startDate: ['', Validators.required],
-  //   endDate: ['', Validators.required],
-  //   leave: ['', Validators.required]
-  // })
   leaveTypeControl = new FormControl('', [Validators.required]);
+  startDateControl = new FormControl('', [Validators.required]);
+  endDateControl = new FormControl('', [Validators.required]);
+  leaveMotifControl= new FormControl('');
+
   public leaveTypeEnum = LeaveType;
   public requAbs !: Leave;
   msgError?: string;
@@ -47,7 +52,8 @@ export class RequestComponent implements OnInit{
     this.leaveForm = new FormGroup({
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
-      leaveType: this.leaveTypeControl
+      leaveType: this.leaveTypeControl,
+      leaveMotif : this.leaveMotifControl
 
     })
 
@@ -90,33 +96,6 @@ export class RequestComponent implements OnInit{
 
 
   }
-
-
-
-  // validate(){
-  //   this.msgOk = undefined;
-  //   this.msgError = undefined;
-
-  //   this.reqLeave.postLeavesByEmployee(this.newLeave)
-  //     .subscribe({
-  //       next: () => {
-  //         this.msgOk = 'Demande prise en compte';
-  //         leaveForm.reset();
-  //         this.newLeave = {};
-  //       },
-  //       error: () => this.msgError = "Aïe c'est pas bon"
-  //     });
-
-
-  // }
-
-
-
-
-
-
-
-
 
 
 }
