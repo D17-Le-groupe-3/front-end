@@ -22,6 +22,7 @@ import {CompanyHolidayPipe} from './pipes/company-holiday.pipe';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import { LeaveCountersComponent } from './components/leave-counters/leave-counters.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {AppComponent} from './app.component';
     MenuComponent,
     CompanyHolidayComponent,
     CompanyHolidayPipe,
-    LeaveValidationComponent
+    LeaveValidationComponent,
+    LeaveCountersComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import {AppComponent} from './app.component';
     MatTableModule,
     MatIconModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
     MatSortModule,
     MatSelectModule,
   ],

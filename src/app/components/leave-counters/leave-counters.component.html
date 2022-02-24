@@ -1,0 +1,7 @@
+  <div *ngIf="leaveCounters != undefined">
+    Solde des compteurs:
+    <ul>
+      <li>Congés payés: {{leaveCounters.remainingPaidLeaves}}</li>
+      <li>RTT: {{leaveCounters.remainingRtt}}</li>
+    </ul>
+  </div>

@@ -16,7 +16,7 @@ export class DisplayLeavesComponent implements OnInit {
   dataSource = new MatTableDataSource<Leave>();
 
   constructor(private leavesService: LeavesService) {
-    this.leavesService.getLeavesByEmployee().subscribe({
+    this.leavesService.getLeavesByEmployee(2).subscribe({
       next: (leaves) => this.dataSource.data = leaves,
       error: (e) => console.log(e)
     });
