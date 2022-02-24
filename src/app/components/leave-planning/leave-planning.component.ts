@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CompanyHolidayService } from 'src/app/services/company-holiday.service';
 import { LeavesService } from 'src/app/services/leaves.service';
-import { Calendar, CalendarOptions, DateSelectionApi, EventApi, EventInput, FullCalendarComponent } from '@fullcalendar/angular';
+import { Calendar, CalendarOptions, DatesSetArg, FullCalendarComponent } from '@fullcalendar/angular';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { CompanyHoliday, Leave } from 'src/app/models';
 
@@ -22,6 +22,10 @@ export class LeavePlanningComponent implements OnInit {
       weekday: 'long'
     },
     showNonCurrentDates: false,
+    datesSet: (dateInfo: DatesSetArg) => {
+      console.log(dateInfo.start.getMonth());
+      console.log(dateInfo.end);
+    }
   };
 
   constructor(private leaveService: LeavesService, private companyHolidayService: CompanyHolidayService) {
