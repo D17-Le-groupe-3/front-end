@@ -11,7 +11,7 @@ export class LeaveCountersComponent implements OnInit {
 
   leaveCounters!: LeaveCounters;
   constructor(private leaveCountersService: LeaveCountersService) {
-    this.leaveCountersService.getLeaveCounterById(2).subscribe({
+    this.leaveCountersService.getLeaveCounterByEmployee(2).subscribe({
       next: (lCounters) => this.leaveCounters = lCounters,
       error: (e) => console.log(e)
     });
