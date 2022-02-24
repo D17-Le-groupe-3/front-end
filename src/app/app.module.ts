@@ -22,6 +22,7 @@ import {CompanyHolidayPipe} from './pipes/company-holiday.pipe';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
 
 @NgModule({
   declarations: [
@@ -44,11 +45,15 @@ import {AppComponent} from './app.component';
     MatTableModule,
     MatIconModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
     MatSortModule,
     MatSelectModule,
+    MatLuxonDateModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue:{useUtc: true}}
+  ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
