@@ -20,6 +20,10 @@ export class LeavesService {
     return this.http.get<Leave[]>(environment.backendUrl + `/leaves?userId=${idEmployee}`);
   }
 
+  deleteLeave(idLeave: number): Observable<Leave> {
+    return this.http.delete<Leave>(environment.backendUrl + `/leaves/${idLeave}`);
+  }
+
   getToValidateByDepartment(department: Department): Observable<Leave[]> {
     return this.http.get<Leave[]>(environment.backendUrl + '/leaves/to-validate?departmentId=' + department.id)
   }

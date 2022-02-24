@@ -15,6 +15,7 @@ import {CompanyHolidayComponent} from './components/company-holiday/company-holi
 import {HomeComponent} from './components/home/home.component';
 import { DisplayLeavesComponent } from './components/display-leaves/display-leaves.component';
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
+import { LeaveCountersComponent } from './components/leave-counters/leave-counters.component';
 
 import { LeaveTypePipe } from './pipes/leave-type.pipe';
 import { LeaveStatusPipe } from './pipes/leave-status.pipe';
@@ -22,7 +23,9 @@ import {CompanyHolidayPipe} from './pipes/company-holiday.pipe';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import { LeaveCountersComponent } from './components/leave-counters/leave-counters.component';
+
+import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
+
 
 @NgModule({
   declarations: [
@@ -49,8 +52,12 @@ import { LeaveCountersComponent } from './components/leave-counters/leave-counte
     MatSnackBarModule,
     MatSortModule,
     MatSelectModule,
+    MatLuxonDateModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue:{useUtc: true}}
+  ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
