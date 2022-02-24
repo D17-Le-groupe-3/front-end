@@ -18,6 +18,7 @@ import {CompanyHolidayComponent} from './components/company-holiday/company-holi
 import {HomeComponent} from './components/home/home.component';
 import { DisplayLeavesComponent } from './components/display-leaves/display-leaves.component';
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
+import { LeaveCountersComponent } from './components/leave-counters/leave-counters.component';
 
 import { LeaveTypePipe } from './pipes/leave-type.pipe';
 import { LeaveStatusPipe } from './pipes/leave-status.pipe';
@@ -27,11 +28,13 @@ import { LeavePlanningComponent } from './components/leave-planning/leave-planni
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin
 ]);
+
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CompanyHolidayComponent,
     CompanyHolidayPipe,
     LeaveValidationComponent,
-    LeavePlanningComponent
+    LeavePlanningComponent,
+    LeaveCountersComponent
   ],
   imports: [
     BrowserModule,
@@ -60,8 +64,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatSelectModule,
     MatButtonModule,
     FullCalendarModule,
+    MatLuxonDateModule
   ],
-  providers: [],
+  providers: [
+    {provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue:{useUtc: true}}
+  ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

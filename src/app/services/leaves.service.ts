@@ -16,8 +16,12 @@ export class LeavesService {
 
   constructor(private http: HttpClient) { }
 
-  getLeavesByEmployee(): Observable<Leave[]> {
-    return this.http.get<Leave[]>(environment.backendUrl + "/leaves?userId=");
+  getLeavesByEmployee(idEmployee: number): Observable<Leave[]> {
+    return this.http.get<Leave[]>(environment.backendUrl + `/leaves?userId=${idEmployee}`);
+  }
+
+  deleteLeave(idLeave: number): Observable<Leave> {
+    return this.http.delete<Leave>(environment.backendUrl + `/leaves/${idLeave}`);
   }
 
   getLeavesByEmployeeMonthYear(employeeId: number, month: string, year: string): Observable<Leave[]> {
