@@ -51,8 +51,6 @@ export class DisplayLeavesComponent implements OnInit {
 
   disableDelete(row: Leave) {
     let flagIsDesabled = false;
-    const startDate = DateTime.fromJSDate(new Date(row.startDate));
-    const dateOfDay = DateTime.now();
     const status = row.status;
 
     // 1. Ne pas supprimer une demande inférieure à la date du jour
@@ -67,8 +65,6 @@ export class DisplayLeavesComponent implements OnInit {
   disableModify(row: Leave) {
     let flagIsDesabled = false;
     const status = row.status;
-    const startDate = DateTime.fromJSDate(new Date(row.startDate));
-    const dateOfDay = DateTime.now();
 
     // 1. Ne pas modifier une demande inférieure à la date du jour - TODO à confirmer
     flagIsDesabled = this.checkDateDateStartAfterCurrentDay(row.startDate);
