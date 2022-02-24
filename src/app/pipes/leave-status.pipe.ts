@@ -9,16 +9,15 @@ export class LeaveStatusPipe implements PipeTransform {
   transform(value: LeaveStatus): string {
     switch (value) {
       case LeaveStatus.INITIAL:
-          return "INITIALE";
+        return "Initiale";
       case LeaveStatus.PENDING_VALIDATION:
-          return "EN ATTENTE VALIDATION";
+        return "En attente de validation";
       case LeaveStatus.VALIDATED:
-          return "VALIDEE";
+        return "Validée";
       case LeaveStatus.REJECTED:
-        return "REJETEE";
+        return "Rejetée";
       default:
         return "error";
     }
   }
-
 }

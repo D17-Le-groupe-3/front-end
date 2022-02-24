@@ -11,19 +11,20 @@
       <!-- StartDate Column -->
       <ng-container matColumnDef="startDate">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Date de début </th>
-        <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.startDate| date:'shortDate'}}</td>
       </ng-container>
 
       <!-- EndDate Column -->
       <ng-container matColumnDef="endDate">
         <th mat-header-cell *matHeaderCellDef> Date de fin </th>
-        <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.endDate| date:'shortDate'}} </td>
       </ng-container>
 
       <!-- Type Column -->
       <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef> Type </th>
         <td mat-cell *matCellDef="let element"> {{element.type | leaveTypeLabel}} </td>
+
       </ng-container>
 
       <!-- Status Column -->
@@ -36,10 +37,11 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-          <button *ngIf="element.status === 0 || element.status === 3" mat-icon-button color="primary">
+          <button mat-icon-button color="primary" [disabled]="disableModify(element)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button *ngIf="element.status != 1" mat-icon-button color="primary">
+          <button mat-icon-button color="primary" [disabled]="disableDelete(element)"
+            (click)="deleteLeave(element.id) ">
             <mat-icon>delete</mat-icon>
           </button>
           <button mat-icon-button color="primary">
@@ -60,7 +62,9 @@
     <app-leave-counters></app-leave-counters>
     <div>
       <h3 class="d-inline me-2">Demander une absence</h3>
-      <button mat-raised-button color="primary"><mat-icon>add</mat-icon></button>
+      <button mat-raised-button color="primary">
+        <mat-icon>add</mat-icon>
+      </button>
     </div>
   </div>
 </div>
