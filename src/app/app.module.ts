@@ -44,7 +44,7 @@ import { RequestComponent } from './components/request-leave/request-leave.compo
     CompanyHolidayPipe,
     RequestComponent,
     RequestLeaveTypePipe,
-    EnumToArrayPipe
+    EnumToArrayPipe,
     LeaveValidationComponent,
     LeaveCountersComponent
   ],

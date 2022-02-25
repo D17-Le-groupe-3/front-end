@@ -1,11 +1,7 @@
-<div class="container-xxl">
-
   <h2 class="text-center mt-3"> Demande d'une absence </h2>
-
   <form [formGroup]="leaveForm" (ngSubmit)="submitForm()">
 
     <div class="col-sm-6 offset-sm-4">
-
       <div class="row col-6 align-center m-2">
         <div class="col-sm-6 m-1">
           <mat-form-field appearance="fill">
@@ -17,10 +13,8 @@
 
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
-
             <mat-error *ngIf="leaveForm.controls['startDate'].hasError('required')">Veuillez saisir une date de début</mat-error>
             <mat-error *ngIf="leaveForm.controls['endDate'].hasError('required')">Veuillez saisir une date de fin</mat-error>
-
           </mat-form-field>
 
           <mat-form-field appearance="fill">
@@ -44,26 +38,12 @@
             <textarea rows="8" width="50px" matInput name="motif" id="motif" ></textarea>
           </mat-form-field>
         </div>
-
-          <div class="m-2 aligne">
+          <div class="m-1 aligne">
             <button mat-raised-button color="primary">Valider</button>
-
             <button mat-raised-button color="warn">Annuler</button>
           </div>
-
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
   </form>
-</div>
+
