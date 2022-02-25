@@ -8,10 +8,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSelectModule} from "@angular/material/select";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatDialogModule} from '@angular/material/dialog';
 
 import {HeaderComponent} from './components/header/header.component';
 import {MenuComponent} from './components/menu/menu.component';
-import {CompanyHolidayComponent} from './components/company-holiday/company-holiday.component';
+import {CompanyHolidayComponent, DialogCompanyHolidayDelete} from './components/company-holiday/company-holiday.component';
 import {HomeComponent} from './components/home/home.component';
 import { DisplayLeavesComponent } from './components/display-leaves/display-leaves.component';
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
@@ -37,6 +38,7 @@ import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/mat
     HeaderComponent,
     MenuComponent,
     CompanyHolidayComponent,
+    DialogCompanyHolidayDelete,
     CompanyHolidayPipe,
     LeaveValidationComponent,
     LeaveCountersComponent
@@ -52,7 +54,8 @@ import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/mat
     MatSnackBarModule,
     MatSortModule,
     MatSelectModule,
-    MatLuxonDateModule
+    MatLuxonDateModule,
+    MatDialogModule
   ],
   providers: [
     {provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue:{useUtc: true}}

@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Êtes-vous sûr ?</h2>
+<mat-dialog-content class="mat-typography">
+    Le jour férié du {{ holiday.date | date }} sera supprimé
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">Annuler</button>
+    <button mat-button [mat-dialog-close]="true">Confirmer</button>
+</mat-dialog-actions>

@@ -12,7 +12,11 @@ export class CompanyHolidayService {
   constructor(private http: HttpClient) { }
 
   getByYear(year: string): Observable<CompanyHoliday[]> {
-    return this.http.get<CompanyHoliday[]>(environment.backendUrl + '/company-holidays/' + year);
+    return this.http.get<CompanyHoliday[]>(environment.backendUrl + '/company-holidays?year=' + year);
+  }
+
+  delete(holidayId: number): Observable<CompanyHoliday> {
+    return this.http.delete<CompanyHoliday>(environment.backendUrl + '/company-holidays/' + holidayId);
   }
 }
 

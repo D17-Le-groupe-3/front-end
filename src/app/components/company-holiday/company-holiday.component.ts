@@ -1,8 +1,9 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {CompanyHoliday} from "../../models";
 import {CompanyHolidayService} from "../../services/company-holiday.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-company-holiday',
@@ -18,7 +19,7 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private service: CompanyHolidayService) { }
+  constructor(private service: CompanyHolidayService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getData();
@@ -42,7 +43,23 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
 
   }
 
-  delete(id: number) {
+  delete(holiday: CompanyHoliday) {
+    const dialogRef = this.dialog.open(DialogCompanyHolidayDelete, {
+      data: holiday
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.service.delete(holiday.id)
+        .subscribe(holiday => console.log(holiday));
+    });
   }
+}
+
+@Component({
+  selector: 'dialog-company-holiday-delete',
+  templateUrl: 'dialog-company-holiday-delete.html'
+})
+export class DialogCompanyHolidayDelete {
+  constructor(@Inject(MAT_DIALOG_DATA) public holiday: CompanyHoliday) {}
 }
