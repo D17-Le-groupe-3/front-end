@@ -5,14 +5,16 @@ import {HomeComponent} from "./components/home/home.component";
 import {CompanyHolidayComponent} from "./components/company-holiday/company-holiday.component";
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
 import { LeavePlanningComponent } from './components/leave-planning/leave-planning.component';
+import { RequestComponent } from './components/request-leave/request-leave.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: HomeComponent},
-  { path: 'company-holiday', component: CompanyHolidayComponent},
   { path: 'leaves/display', component: DisplayLeavesComponent },
+  { path: 'leaves/request', component: RequestComponent},
   { path: 'leaves/validate', component: LeaveValidationComponent},
-  { path: 'leaves/planning', component: LeavePlanningComponent }
+  { path: 'leaves/planning', component: LeavePlanningComponent },
+  { path: 'company-holiday', component: CompanyHolidayComponent}
 ];
 
 @NgModule({
