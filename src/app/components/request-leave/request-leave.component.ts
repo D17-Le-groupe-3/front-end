@@ -7,6 +7,10 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
 
+
+/**
+ * Contrôle si il n'y a pas d'erreurs dans le formulaire
+ */
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: AbstractControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -28,11 +32,7 @@ export class RequestComponent implements OnInit{
   matcherType = new MyErrorStateMatcher();
   newLeave: Partial<Leave> = {};
   leaveForm!: FormGroup;
-  leaveTypeControl = new FormControl('', [Validators.required]);
-  leaveMotifControl= new FormControl('');
-
   public leaveTypeEnum = LeaveType;
-  public requAbs !: Leave;
   msgError?: string;
 
 
@@ -50,8 +50,8 @@ export class RequestComponent implements OnInit{
     this.leaveForm = new FormGroup({
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
-      leaveType: this.leaveTypeControl,
-      leaveReason : this.leaveMotifControl
+      leaveType: new FormControl('', [Validators.required]),
+      leaveReason : new FormControl('')
 
     })
 
