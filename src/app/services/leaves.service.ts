@@ -17,7 +17,6 @@ export class LeavesService {
   constructor(private http: HttpClient) { }
 
   getLeavesByEmployee(idEmployee: number): Observable<Leave[]> {
-    console.log(idEmployee)
     return this.http.get<Leave[]>(environment.backendUrl + `/leaves?userId=${idEmployee}`);
   }
 
@@ -42,7 +41,6 @@ export class LeavesService {
   }
 
   postLeavesByEmployee(leave: LeaveDto) {
-    console.log("leave service", leave);
-    return this.http.post<LeaveDto[]>(environment.backendUrl + "/leaves", leave);
+    return this.http.post<LeaveDto>(environment.backendUrl + "/leaves", leave);
   }
 }
