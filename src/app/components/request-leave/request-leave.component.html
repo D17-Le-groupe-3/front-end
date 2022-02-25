@@ -1,0 +1,49 @@
+  <h2 class="text-center mt-3"> Demande d'une absence </h2>
+  <form [formGroup]="leaveForm" (ngSubmit)="submitForm()">
+
+    <div class="col-sm-6 offset-sm-4">
+      <div class="row col-6 align-center m-2">
+        <div class="col-sm-6 m-1">
+          <mat-form-field appearance="fill">
+            <mat-label>Dates souhaitées</mat-label>
+            <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+              <input  matStartDate formControlName="startDate" required="" [min]="minDate">
+              <input  matEndDate formControlName="endDate" required="">
+            </mat-date-range-input>
+
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+            <mat-error *ngIf="leaveForm.controls['startDate'].hasError('required')">Veuillez saisir une date de début</mat-error>
+            <mat-error *ngIf="leaveForm.controls['endDate'].hasError('required')">Veuillez saisir une date de fin</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Type de congé</mat-label>
+            <mat-select name="leaveType" formControlName="leaveType" required="" [errorStateMatcher]="matcherType" #typeLeave>
+              <mat-option *ngFor="let type of leaveTypeEnum | enumToArray " [value]="type">{{type | leaveType}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="leaveForm.controls['leaveType'].hasError('required')">Renseignez le type de congé</mat-error>
+          </mat-form-field>
+
+        <div *ngIf="typeLeave.value == leaveTypeEnum.UNPAID_LEAVE">
+          <mat-form-field appearance="fill">
+            <mat-label>Motif</mat-label>
+            <textarea rows="8" matInput name="motif" id="motif" formControlName="leaveReason"  required="" [errorStateMatcher]="matcherType" ></textarea>
+            <mat-error *ngIf="leaveForm.controls['leaveReason'].hasError('required')">Motif requis pour ce type de congé</mat-error>
+          </mat-form-field>
+        </div>
+        <div *ngIf="typeLeave.value != leaveTypeEnum.UNPAID_LEAVE">
+          <mat-form-field appearance="fill">
+            <mat-label>Motif</mat-label>
+            <textarea rows="8" width="50px" matInput name="motif" id="motif" ></textarea>
+          </mat-form-field>
+        </div>
+          <div class="mt-1 aligne">
+            <button mat-raised-button color="primary">Valider</button>
+            <button mat-raised-button color="warn">Annuler</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
