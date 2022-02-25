@@ -7,6 +7,10 @@ import { CompanyHoliday, Leave } from 'src/app/models';
 import { LeaveTypePipe } from 'src/app/pipes/leave-type.pipe';
 import { CompanyHolidayPipe } from 'src/app/pipes/company-holiday.pipe';
 
+/**
+ * Composant calendrier affichant les congés de l'utilisateur et les jours fériés
+ */
+
 @Component({
   selector: 'app-leave-planning',
   templateUrl: './leave-planning.component.html',
@@ -37,9 +41,13 @@ export class LeavePlanningComponent implements OnInit {
 
   ngAfterViewInit(): void{
     this.calendarApi = this.calendarComponent.getApi();
-    //this.loadData();
   }
 
+  /**
+   * Charge les events pour un mois et une année donnés
+   * @param month 
+   * @param year 
+   */
   loadData(month: number, year: number): void {
     if (this.calendarApi)
       this.calendarApi.removeAllEvents();

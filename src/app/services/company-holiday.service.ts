@@ -11,10 +11,21 @@ export class CompanyHolidayService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Récupère les jours fériés et RTT employeurs d'une année donnée
+   * @param year année
+   * @returns liste des jours fériés et employeurs du mois
+   */
   getByYear(year: string): Observable<CompanyHoliday[]> {
     return this.http.get<CompanyHoliday[]>(environment.backendUrl + '/company-holidays?year=' + year);
   }
 
+  /**
+   * Récupère les jours fériés et RTT employeurs d'un mois et d'une année donné
+   * @param month mois
+   * @param year année
+   * @returns liste des jours fériés et employeurs du mois
+   */
   getByMonthAndYear(month: number, year: number): Observable<CompanyHoliday[]> {  
     return this.http.get<CompanyHoliday[]>(`${environment.backendUrl}/company-holidays?month=${month}&year=${year}`);
   }

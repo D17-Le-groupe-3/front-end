@@ -24,6 +24,13 @@ export class LeavesService {
     return this.http.delete<Leave>(environment.backendUrl + `/leaves/${idLeave}`);
   }
 
+  /**
+   * Récupère la liste des congés pour un utilisateur, mois et année donnés
+   * @param employeeId id de l'employé
+   * @param month mois
+   * @param year année
+   * @returns liste des congés du mois
+   */
   getLeavesByEmployeeMonthAndYear(employeeId: number, month: number, year: number): Observable<Leave[]> {
     return this.http.get<Leave[]>(`${environment.backendUrl}/leaves?userId=${employeeId}&month=${month}&year=${year}`);
   }
