@@ -33,7 +33,7 @@ export class DisplayLeavesComponent implements OnInit {
   }
 
   loadLeaves(){
-    this.leavesService.getLeavesByEmployee(12).subscribe({
+    this.leavesService.getLeavesByEmployee(2).subscribe({
       next: (leaves) => this.dataSource.data = leaves,
       error: (e) => console.log(e)
     });

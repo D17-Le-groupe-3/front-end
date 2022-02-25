@@ -7,6 +7,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSelectModule} from "@angular/material/select";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS} from "@angular/material-luxon-adapter";
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { FullCalendarModule } from '@fullcalendar/angular'; 
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -19,22 +25,20 @@ import {HomeComponent} from './components/home/home.component';
 import { DisplayLeavesComponent } from './components/display-leaves/display-leaves.component';
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
 import { LeaveCountersComponent } from './components/leave-counters/leave-counters.component';
-
+import { LeavePlanningComponent } from './components/leave-planning/leave-planning.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import { LeaveTypePipe } from './pipes/leave-type.pipe';
 import { LeaveStatusPipe } from './pipes/leave-status.pipe';
 import {CompanyHolidayPipe} from './pipes/company-holiday.pipe';
-
-import { LeavePlanningComponent } from './components/leave-planning/leave-planning.component';
-
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
+import { EnumToArrayPipe } from './pipes/enum-request-leave-type.pipe';
+import { RequestLeaveTypePipe } from './pipes/request-leave-type.pipe';
+import { RequestComponent } from './components/request-leave/request-leave.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin
 ]);
-
 
 @NgModule({
   declarations: [
@@ -47,6 +51,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MenuComponent,
     CompanyHolidayComponent,
     CompanyHolidayPipe,
+    RequestComponent,
+    RequestLeaveTypePipe,
+    EnumToArrayPipe,
     LeaveValidationComponent,
     LeavePlanningComponent,
     LeaveCountersComponent
@@ -63,8 +70,17 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatSortModule,
     MatSelectModule,
     MatButtonModule,
-    FullCalendarModule,
-    MatLuxonDateModule
+    FormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatLuxonDateModule,
+    MatSnackBarModule,
+    FullCalendarModule
   ],
   providers: [
     LeaveTypePipe,
@@ -72,6 +88,5 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     {provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue:{useUtc: true}}
   ],
   bootstrap: [AppComponent]
-
 })
 export class AppModule { }
