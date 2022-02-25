@@ -59,8 +59,8 @@ export class CompanyHoliday {
 }
 
 export enum CompanyHolidayType {
-  COMPANY_RTT,
-  PUBLIC_HOLIDAY
+  COMPANY_RTT = 'COMPANY_RTT',
+  PUBLIC_HOLIDAY = 'PUBLIC_HOLIDAY'
 }
 
 export interface LeaveCounters {
