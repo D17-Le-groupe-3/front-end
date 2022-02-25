@@ -35,13 +35,14 @@ export enum LeaveStatus {
 export interface CompanyHoliday {
   id: number,
   date: Date,
+  status: LeaveStatus
   type: CompanyHolidayType,
   comment: string
 }
 
 export enum CompanyHolidayType {
-  COMPANY_RTT,
-  PUBLIC_HOLIDAY
+  COMPANY_RTT = 'COMPANY_RTT',
+  PUBLIC_HOLIDAY = 'PUBLIC_HOLIDAY'
 }
 
 export interface LeaveCounters {

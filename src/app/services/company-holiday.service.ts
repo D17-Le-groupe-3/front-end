@@ -15,8 +15,8 @@ export class CompanyHolidayService {
     return this.http.get<CompanyHoliday[]>(environment.backendUrl + '/company-holidays?year=' + year);
   }
 
-  delete(holidayId: number): Observable<CompanyHoliday> {
-    return this.http.delete<CompanyHoliday>(environment.backendUrl + '/company-holidays/' + holidayId);
+  delete(holidayId: number): Observable<{ companyHolidayDeleted: boolean }> {
+    return this.http.delete<{ companyHolidayDeleted: boolean }>(environment.backendUrl + '/company-holidays/' + holidayId);
   }
 }
 
