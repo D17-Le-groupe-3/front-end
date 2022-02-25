@@ -1,17 +1,25 @@
 import { DateTime } from 'luxon';
 
+export interface User {
+  firstName: string,
+  lastName: string
+}
 
+export interface Department {
+  id: number,
+  label: string
+}
 
 export interface Leave {
   id: number,
   startDate: Date,
   endDate: Date,
   type: LeaveType,
-  status: LeaveStatus
+  status: LeaveStatus,
+  user: User
 }
 
 export interface LeaveDto {
-
   startDate: DateTime,
   endDate: DateTime,
   type: LeaveType,
@@ -32,7 +40,6 @@ export enum LeaveStatus {
   REJECTED = 'REJECTED'
 }
 
-
 export interface CompanyHoliday {
   id: number,
   date: Date,
@@ -43,4 +50,13 @@ export interface CompanyHoliday {
 export enum CompanyHolidayType {
   COMPANY_RTT,
   PUBLIC_HOLIDAY
+}
+
+export interface LeaveCounters {
+  userId: number,
+  remainingPaidLeaves: number,
+  paidLeaveTaken: number,
+  remainingRtt: number,
+  RttTaken: number,
+  unpaidLeaveTaken: number
 }
