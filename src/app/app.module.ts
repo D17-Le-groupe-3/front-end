@@ -67,6 +67,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatLuxonDateModule
   ],
   providers: [
+    LeaveTypePipe,
+    CompanyHolidayPipe,
     {provide: MAT_LUXON_DATE_ADAPTER_OPTIONS, useValue:{useUtc: true}}
   ],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import { LeavesService } from 'src/app/services/leaves.service';
 import { Calendar, CalendarOptions, DatesSetArg, FullCalendarComponent } from '@fullcalendar/angular';
 import frLocale from '@fullcalendar/core/locales/fr';
 import { CompanyHoliday, Leave } from 'src/app/models';
+import { LeaveTypePipe } from 'src/app/pipes/leave-type.pipe';
+import { CompanyHolidayPipe } from 'src/app/pipes/company-holiday.pipe';
 
 @Component({
   selector: 'app-leave-planning',
@@ -27,7 +29,7 @@ export class LeavePlanningComponent implements OnInit {
     }
   };
 
-  constructor(private leaveService: LeavesService, private companyHolidayService: CompanyHolidayService) {
+  constructor(private leaveService: LeavesService, private companyHolidayService: CompanyHolidayService, private leaveTypePipe: LeaveTypePipe, private companyHolydayPipe: CompanyHolidayPipe) {
   }
 
   ngOnInit(): void {
@@ -41,13 +43,13 @@ export class LeavePlanningComponent implements OnInit {
   loadData(month: number, year: number): void {
     if (this.calendarApi)
       this.calendarApi.removeAllEvents();
-    this.leaveService.getLeavesByEmployeeMonthAndYear(5, month, year).subscribe({
+    this.leaveService.getLeavesByEmployeeMonthAndYear(3, month, year).subscribe({
       next: (leaves: Leave[]) => {
         leaves.forEach(l => {
           l = new Leave(l.id,l.startDate,l.endDate,l.type,l.status,l.user);
           this.calendarApi.addEvent({
             id: l.id.toString(),
-            title: l.type,
+            title: this.leaveTypePipe.transform(l.type),
             start: l.startDate,
             end: l.endDate.setDate(l.endDate.getDate() + 1),
             allDay: true,
@@ -58,12 +60,12 @@ export class LeavePlanningComponent implements OnInit {
       },
       error: (e) => console.log(e)
     });
-    this.companyHolidayService.getByMonthAndYear('month', 'year').subscribe({
+    this.companyHolidayService.getByMonthAndYear(month, year).subscribe({
       next: (companyHoliday: CompanyHoliday[]) => {
         companyHoliday.forEach(ch => {
           this.calendarApi.addEvent({
             id: ch.id.toString(),
-            title: ch.type.toString(),
+            title: this.companyHolydayPipe.transform(ch.type),
             start: ch.date,
             allDay: true,
             color: 'green'
