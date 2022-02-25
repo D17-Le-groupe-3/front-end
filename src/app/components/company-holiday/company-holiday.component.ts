@@ -53,6 +53,14 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
 
   }
 
+  /**
+   * Méthode appelée lors du click sur le bouton supprimer.
+   * Affiche une demande de confirmation puis envoie une requête delete au back-end via le service.
+   * Si une réponse Ok est reçu du back-end, affiche une confirmation de suppression puis rafraichit
+   * les données du tableau.
+   *
+   * @param holiday le jour férié/RTT employeur à supprimer
+   */
   delete(holiday: CompanyHoliday) {
     const dialogRef = this.dialog.open(DialogCompanyHolidayDelete, {
       data: holiday
@@ -68,6 +76,12 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
     });
   }
 
+  /**
+   * Méthode utilisée pour désactiver le bouton supprimer.
+   * Vérifie les règles métier(date, type et statut).
+   *
+   * @param holiday le jour férié/RTT employeur à tester
+   */
   isDisabled(holiday: CompanyHoliday) {
     return DateTime.fromJSDate(new Date(holiday.date)) < DateTime.now()
       || (holiday.type == CompanyHolidayType.COMPANY_RTT && holiday.status == LeaveStatus.VALIDATED);
