@@ -39,13 +39,15 @@ export class DisplayLeavesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   /**
    * Methode de chargement des demandes de congés
    * Méthode appelée lors de la création du composant.
    * Affiche l'ensemble des demandes de congés de l'utilisateur autentifié.
    */
-  loadLeaves() {
-    this.leavesService.getLeavesByEmployee(12).subscribe({
+ 
+  loadLeaves(){
+    this.leavesService.getLeavesByEmployee(2).subscribe({
       next: (leaves) => this.dataSource.data = leaves,
       error: (e) => console.log(e)
     });

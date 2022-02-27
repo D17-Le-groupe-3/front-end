@@ -1,3 +1,5 @@
+import { DateTime } from 'luxon';
+
 export interface User {
   firstName: string,
   lastName: string
@@ -17,8 +19,15 @@ export interface Leave {
   user: User
 }
 
-export enum LeaveType {
+export interface LeaveDto {
+  startDate: DateTime,
+  endDate: DateTime,
+  type: LeaveType,
+  reason: string,
+  userId: number
+}
 
+export enum LeaveType {
   PAID_LEAVE = 'PAID_LEAVE',
   UNPAID_LEAVE = 'UNPAID_LEAVE',
   RTT = 'RTT'
@@ -29,19 +38,19 @@ export enum LeaveStatus {
   PENDING_VALIDATION = 'PENDING_VALIDATION',
   VALIDATED = 'VALIDATED',
   REJECTED = 'REJECTED'
-
 }
 
 export interface CompanyHoliday {
   id: number,
   date: Date,
+  status: LeaveStatus
   type: CompanyHolidayType,
   comment: string
 }
 
 export enum CompanyHolidayType {
-  COMPANY_RTT,
-  PUBLIC_HOLIDAY
+  COMPANY_RTT = 'COMPANY_RTT',
+  PUBLIC_HOLIDAY = 'PUBLIC_HOLIDAY'
 }
 
 export interface LeaveCounters {
