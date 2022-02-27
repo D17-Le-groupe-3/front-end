@@ -8,6 +8,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSelectModule} from "@angular/material/select";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { MatDialogModule } from '@angular/material/dialog';
 
 import {HeaderComponent} from './components/header/header.component';
 import {MenuComponent} from './components/menu/menu.component';
@@ -16,6 +17,8 @@ import {HomeComponent} from './components/home/home.component';
 import { DisplayLeavesComponent } from './components/display-leaves/display-leaves.component';
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
 import { LeaveCountersComponent } from './components/leave-counters/leave-counters.component';
+import { DialogLeaveDelete } from './components/display-leaves/display-leaves.component';
+
 
 import { LeaveTypePipe } from './pipes/leave-type.pipe';
 import { LeaveStatusPipe } from './pipes/leave-status.pipe';
@@ -25,6 +28,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
+
 
 
 @NgModule({
@@ -39,7 +43,8 @@ import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/mat
     CompanyHolidayComponent,
     CompanyHolidayPipe,
     LeaveValidationComponent,
-    LeaveCountersComponent
+    LeaveCountersComponent,
+    DialogLeaveDelete
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,7 @@ import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/mat
     MatSnackBarModule,
     MatSortModule,
     MatSelectModule,
+    MatDialogModule,
     MatLuxonDateModule
   ],
   providers: [
