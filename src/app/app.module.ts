@@ -34,6 +34,7 @@ import { RequestLeaveTypePipe } from './pipes/request-leave-type.pipe';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import { CreateCompanyHolidayComponent } from './components/create-company-holiday/create-company-holiday.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {AppComponent} from './app.component';
     RequestLeaveTypePipe,
     EnumToArrayPipe,
     LeaveValidationComponent,
-    LeaveCountersComponent
+    LeaveCountersComponent,
+    CreateCompanyHolidayComponent
   ],
   imports: [
     BrowserModule,

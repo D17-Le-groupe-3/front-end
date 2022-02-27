@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {CompanyHoliday} from "../models";
+import {CompanyHoliday, CompanyHolidayDto} from "../models";
 import {environment} from "../../environments/environment";
 
 @Injectable({
@@ -13,6 +13,10 @@ export class CompanyHolidayService {
 
   getByYear(year: string): Observable<CompanyHoliday[]> {
     return this.http.get<CompanyHoliday[]>(environment.backendUrl + '/company-holidays?year=' + year);
+  }
+
+  create(companyHoliday: CompanyHolidayDto): Observable<CompanyHoliday> {
+    return this.http.post<CompanyHoliday>(environment.backendUrl + "/company-holidays", companyHoliday);
   }
 
   delete(holidayId: number): Observable<{ companyHolidayDeleted: boolean }> {

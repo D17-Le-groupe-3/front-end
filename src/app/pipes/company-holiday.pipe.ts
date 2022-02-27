@@ -6,7 +6,7 @@ import {CompanyHolidayType} from "../models";
 })
 export class CompanyHolidayPipe implements PipeTransform {
 
-  transform(value: CompanyHolidayType): string {
+  transform(value: CompanyHolidayType | string): string {
     return value == CompanyHolidayType.PUBLIC_HOLIDAY ? 'Férié' : 'RTT employeur';
   }
 
