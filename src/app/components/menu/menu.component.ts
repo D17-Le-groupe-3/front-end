@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+/**
+ * Gestion des menus
+ */
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
