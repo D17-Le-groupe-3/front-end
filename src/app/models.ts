@@ -54,12 +54,14 @@ export enum LeaveStatus {
 export class CompanyHoliday {
   id: number;
   date: Date;
+  status: LeaveStatus
   type: CompanyHolidayType;
   comment: string;
 
-  constructor(id: number, date: Date, type: CompanyHolidayType, comment: string) {
+  constructor(id: number, date: Date, status: LeaveStatus, type: CompanyHolidayType, comment: string) {
     this.id = id;
     this.date = new Date(date);
+    this.status = status;
     this.type = type;
     this.comment = comment;
     console.log("hello");

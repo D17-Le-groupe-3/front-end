@@ -29,6 +29,15 @@ export class CompanyHolidayService {
   getByMonthAndYear(month: number, year: number): Observable<CompanyHoliday[]> {  
     return this.http.get<CompanyHoliday[]>(`${environment.backendUrl}/company-holidays?month=${month}&year=${year}`);
   }
+
+  /**
+   * Supprime le jour férié ou RTT employeur dont l'id est donné en paramètre
+   * @param holidayId id
+   * @returns le jour férié ou RTT employeur supprimé
+   */
+  delete(holidayId: number): Observable<{ companyHolidayDeleted: boolean }> {
+    return this.http.delete<{ companyHolidayDeleted: boolean }>(environment.backendUrl + '/company-holidays/' + holidayId);
+  }
 }
 
 
