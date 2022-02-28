@@ -6,6 +6,7 @@ import {MatSort} from "@angular/material/sort";
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
 import {DateTime} from "luxon";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-holiday',
@@ -29,7 +30,7 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private service: CompanyHolidayService, public dialog: MatDialog, private snackBar: MatSnackBar) { }
+  constructor(private service: CompanyHolidayService, public dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
     this.getData();
@@ -85,6 +86,10 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
   isDisabled(holiday: CompanyHoliday) {
     return DateTime.fromJSDate(new Date(holiday.date)) < DateTime.now()
       || (holiday.type == CompanyHolidayType.COMPANY_RTT && holiday.status == LeaveStatus.VALIDATED);
+  }
+
+  createCompanyHoliday(){
+    this.router.navigate(['company-holiday/create'])
   }
 }
 

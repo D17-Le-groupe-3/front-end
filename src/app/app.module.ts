@@ -10,7 +10,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS} from "@angular/material-luxon-adapter";
+import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import {MatSnackBarModule} from "@angular/material/snack-bar";
@@ -27,6 +27,7 @@ import {CompanyHolidayComponent, DialogCompanyHolidayDelete} from './components/
 import {DisplayLeavesComponent} from './components/display-leaves/display-leaves.component';
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
 import { DialogLeaveDelete } from './components/display-leaves/display-leaves.component';
+import { CreateCompanyHolidayComponent } from './components/create-company-holiday/create-company-holiday.component';
 
 import { RequestComponent } from './components/request-leave/request-leave.component';
 import { LeaveCountersComponent } from './components/leave-counters/leave-counters.component';
@@ -39,7 +40,6 @@ import { RequestLeaveTypePipe } from './pipes/request-leave-type.pipe';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -62,9 +62,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     RequestLeaveTypePipe,
     EnumToArrayPipe,
     LeaveValidationComponent,
-    DialogLeaveDelete
+    DialogLeaveDelete,
     LeavePlanningComponent,
-    LeaveCountersComponent
+    LeaveCountersComponent,
+    CreateCompanyHolidayComponent
   ],
   imports: [
     BrowserModule,
