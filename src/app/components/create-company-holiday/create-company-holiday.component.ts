@@ -48,8 +48,6 @@ export class CreateCompanyHolidayComponent implements OnInit {
   }
 
   submitForm(){
-    console.log(this.companyHolidayForm.value)
-    console.log(this.companyHolidayForm.valid)
     if(!this.companyHolidayForm.valid)
       return;
 
@@ -69,5 +67,9 @@ export class CreateCompanyHolidayComponent implements OnInit {
         this.snackBar.open('Demande rejeté', '', this.snackBarConfig);
       }
     });
+  }
+
+  cancel(){
+    this.router.navigate(['company-holiday']);
   }
 }
