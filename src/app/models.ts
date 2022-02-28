@@ -82,6 +82,12 @@ export class CompanyHoliday {
   }
 }
 
+export interface CompanyHolidayDto {
+  date: Date,
+  type: CompanyHolidayType,
+  comment: string
+}
+
 export enum CompanyHolidayType {
   COMPANY_RTT = 'COMPANY_RTT',
   PUBLIC_HOLIDAY = 'PUBLIC_HOLIDAY'

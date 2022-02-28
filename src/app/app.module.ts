@@ -30,6 +30,7 @@ import {LeaveValidationComponent} from "./components/leave-validation/leave-vali
 import {LeaveCountersComponent} from './components/leave-counters/leave-counters.component';
 import {RequestComponent} from './components/request-leave/request-leave.component';
 import { DialogLeaveDelete } from './components/display-leaves/display-leaves.component';
+import { CreateCompanyHolidayComponent } from './components/create-company-holiday/create-company-holiday.component';
 import { LeavePlanningComponent } from './components/leave-planning/leave-planning.component';
 
 import { LeaveTypePipe } from './pipes/leave-type.pipe';
@@ -63,9 +64,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     RequestLeaveTypePipe,
     EnumToArrayPipe,
     LeaveValidationComponent,
-    DialogLeaveDelete
+    DialogLeaveDelete,
     LeavePlanningComponent,
-    LeaveCountersComponent
+    LeaveCountersComponent,
+    CreateCompanyHolidayComponent
   ],
   imports: [
     BrowserModule,
