@@ -6,6 +6,7 @@ import frLocale from '@fullcalendar/core/locales/fr';
 import { CompanyHoliday, Leave } from 'src/app/models';
 import { LeaveTypePipe } from 'src/app/pipes/leave-type.pipe';
 import { CompanyHolidayPipe } from 'src/app/pipes/company-holiday.pipe';
+import { UserService } from 'src/app/services/user.service';
 
 /**
  * Composant calendrier affichant les congés de l'utilisateur et les jours fériés
@@ -33,7 +34,8 @@ export class LeavePlanningComponent implements OnInit {
     }
   };
 
-  constructor(private leaveService: LeavesService, private companyHolidayService: CompanyHolidayService, private leaveTypePipe: LeaveTypePipe, private companyHolydayPipe: CompanyHolidayPipe) {
+  constructor(private leaveService: LeavesService, private companyHolidayService: CompanyHolidayService, private userService: UserService,
+              private leaveTypePipe: LeaveTypePipe, private companyHolydayPipe: CompanyHolidayPipe) {
   }
 
   ngOnInit(): void {
@@ -51,7 +53,7 @@ export class LeavePlanningComponent implements OnInit {
   loadData(month: number, year: number): void {
     if (this.calendarApi)
       this.calendarApi.removeAllEvents();
-    this.leaveService.getLeavesByEmployeeMonthAndYear(3, month, year).subscribe({
+    this.leaveService.getLeavesByEmployeeMonthAndYear(this.userService.user!.id, month, year).subscribe({
       next: (leaves: Leave[]) => {
         leaves.forEach(l => {
           l = new Leave(l.id,l.startDate,l.endDate,l.type,l.status,l.user);
