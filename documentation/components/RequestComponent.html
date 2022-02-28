@@ -1,0 +1,1039 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>digiday documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">digiday documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  RequestComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/request-leave/request-leave.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-demande</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./request-leave.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./request-leave.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionMode" >actionMode</a>
+                            </li>
+                            <li>
+                                <a href="#leaveForm" >leaveForm</a>
+                            </li>
+                            <li>
+                                <a href="#leaveToModify" >leaveToModify</a>
+                            </li>
+                            <li>
+                                <a href="#leaveToModifyId" >leaveToModifyId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#leaveTypeEnum" >leaveTypeEnum</a>
+                            </li>
+                            <li>
+                                <a href="#matcherType" >matcherType</a>
+                            </li>
+                            <li>
+                                <a href="#minDate" >minDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#msgError" >msgError</a>
+                            </li>
+                            <li>
+                                <a href="#snackBarConfig" >snackBarConfig</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                <a href="#initFormgroup" >initFormgroup</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#submitForm" >submitForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, reqLeave: <a href="../injectables/LeavesService.html" target="_self">LeavesService</a>, snackBar: MatSnackBar, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>reqLeave</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LeavesService.html" target="_self" >LeavesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>snackBar</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatSnackBar</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancel()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:134</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methode permetant d&#39;annuler la modification
+Retourne à la liste des demandes de congés sans intervention</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initFormgroup"></a>
+                    <span class="name">
+                        <span ><b>initFormgroup</b></span>
+                        <a href="#initFormgroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initFormgroup()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitForm"></a>
+                    <span class="name">
+                        <span ><b>submitForm</b></span>
+                        <a href="#submitForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Methoded&#39;enregistrement des informations renseignées.
+Appel du service postLeavesByEmployee permetant l&#39;appel de l&#39;API bach.
+puis renvoie sur la liste des demandes de congés.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionMode"></a>
+                    <span class="name">
+                        <span ><b>actionMode</b></span>
+                        <a href="#actionMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;creation&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leaveForm"></a>
+                    <span class="name">
+                        <span ><b>leaveForm</b></span>
+                        <a href="#leaveForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leaveToModify"></a>
+                    <span class="name">
+                        <span ><b>leaveToModify</b></span>
+                        <a href="#leaveToModify"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ModifyLeaveDTO.html" target="_self" >ModifyLeaveDTO</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leaveToModifyId"></a>
+                    <span class="name">
+                        <span ><b>leaveToModifyId</b></span>
+                        <a href="#leaveToModifyId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leaveTypeEnum"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>leaveTypeEnum</b></span>
+                        <a href="#leaveTypeEnum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LeaveType</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matcherType"></a>
+                    <span class="name">
+                        <span ><b>matcherType</b></span>
+                        <a href="#matcherType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new MyErrorStateMatcher()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minDate"></a>
+                    <span class="name">
+                        <span ><b>minDate</b></span>
+                        <a href="#minDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Date()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="msgError"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>msgError</b></span>
+                        <a href="#msgError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="snackBarConfig"></a>
+                    <span class="name">
+                        <span ><b>snackBarConfig</b></span>
+                        <a href="#snackBarConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MatSnackBarConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    horizontalPosition: &#x27;center&#x27;,
+    verticalPosition: &#x27;bottom&#x27;,
+    duration: 4000
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/request-leave/request-leave.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Leave, LeaveDto, ModifyLeaveDTO } from &#x27;src/app/models&#x27;;
+import {LeavesService} from &#x27;src/app/services/leaves.service&#x27;;
+import {LeaveType} from &#x27;../../models&#x27;;
+import {Component, OnInit} from &quot;@angular/core&quot;;
+import {AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from &#x27;@angular/forms&#x27;;
+import {MatSnackBar, MatSnackBarConfig} from &#x27;@angular/material/snack-bar&#x27;;
+import {ErrorStateMatcher} from &#x27;@angular/material/core&#x27;;
+import {UserService} from &quot;../../services/user.service&quot;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+
+/**
+ * Contrôle si il n&#x27;y a pas d&#x27;erreurs dans le formulaire
+ */
+class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: AbstractControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted &#x3D; form &amp;&amp; form.submitted;
+    return !!(control &amp;&amp; control.invalid &amp;&amp; (control.dirty || control.touched || isSubmitted));
+  }
+
+}
+
+@Component({
+  selector: &#x27;app-demande&#x27;,
+  templateUrl: &#x27;./request-leave.component.html&#x27;,
+  styleUrls: [&#x27;./request-leave.component.scss&#x27;],
+})
+
+export class RequestComponent implements OnInit {
+  matcherType &#x3D; new MyErrorStateMatcher();
+  leaveForm!: FormGroup;
+  public leaveTypeEnum &#x3D; LeaveType;
+  msgError?: string;
+  snackBarConfig: MatSnackBarConfig &#x3D; {
+    horizontalPosition: &#x27;center&#x27;,
+    verticalPosition: &#x27;bottom&#x27;,
+    duration: 4000
+  };
+  minDate &#x3D; new Date();
+  // Gestion pour modification
+  actionMode &#x3D; &#x27;creation&#x27;;
+  leaveToModify!: ModifyLeaveDTO;
+  leaveToModifyId!: number;
+
+
+  constructor(private userService: UserService, private reqLeave: LeavesService, private snackBar: MatSnackBar, private router: Router, private route: ActivatedRoute) {
+    this.initFormgroup();
+  }
+
+initFormgroup(){
+    this.leaveForm &#x3D; new FormGroup({
+      startDate: new FormControl(&#x27;&#x27;, [Validators.required]),
+      endDate: new FormControl(&#x27;&#x27;, [Validators.required]),
+      leaveType: new FormControl(&#x27;&#x27;, [Validators.required]),
+      leaveReason: new FormControl(&#x27;&#x27;)
+    })
+    this.minDate.setDate(this.minDate.getDate() + 1);
+  }
+
+  ngOnInit(): void {
+    this.route.queryParamMap.subscribe((params) &#x3D;&gt; {
+      //récupération des paramètres
+      this.leaveToModifyId &#x3D; Number(params.get(&#x27;leaveId&#x27;));
+      // Recherche de la demande de congé pour identifiant passé en paramètre
+      if (this.leaveToModifyId) {
+        this.reqLeave.getLeaveById(this.leaveToModifyId).subscribe((result) &#x3D;&gt; {
+          if (result) {
+            this.leaveToModify &#x3D; result;
+            this.leaveForm.setValue({
+              startDate: this.leaveToModify.startDate,
+              endDate: this.leaveToModify.endDate,
+              leaveType: this.leaveToModify.type,
+              leaveReason: this.leaveToModify.reason ? this.leaveToModify.reason : &#x27;&#x27;
+            });
+          }
+        });
+      }
+    })
+  }
+
+
+  /**
+   * Methoded&#x27;enregistrement des informations renseignées.
+   * Appel du service postLeavesByEmployee permetant l&#x27;appel de l&#x27;API bach.
+   * puis renvoie sur la liste des demandes de congés.
+   * @returns
+   */
+  submitForm() {
+    // Pour une création
+    if (this.actionMode &#x3D;&#x3D;&#x3D; &#x27;creation&#x27;) {
+      if (this.leaveForm.valid) {
+        this.reqLeave.postLeavesByEmployee({
+          startDate: this.leaveForm.value.startDate,
+          endDate: this.leaveForm.value.endDate,
+          type: this.leaveForm.value.leaveType,
+          reason: this.leaveForm.value.leaveReason,
+          userId: this.userService.user!.id
+        })
+          .subscribe({
+            next: () &#x3D;&gt; {
+              this.snackBar.open(&#x27;Demande prise en compte&#x27;, &#x27;&#x27;, this.snackBarConfig);
+              this.leaveForm.reset();
+              this.router.navigate([&#x27;/leaves/display&#x27;])
+            },
+            error: () &#x3D;&gt; this.msgError &#x3D; &#x27;Demande rejetée&#x27;
+          });
+      }
+      // Pour une modification
+    } else {
+      if (this.leaveForm.valid) {
+        this.reqLeave.modifyLeaves(this.leaveToModifyId, {
+          startDate: this.leaveForm.value.startDate,
+          endDate: this.leaveForm.value.endDate,
+          type: this.leaveForm.value.leaveType,
+          reason: this.leaveForm.value.leaveReason,
+          status: this.leaveToModify.status
+        })
+          .subscribe({
+            next: () &#x3D;&gt; {
+              this.snackBar.open(&#x27;Demande prise en compte&#x27;, &#x27;&#x27;, this.snackBarConfig);
+              this.leaveForm.reset();
+              this.router.navigate([&#x27;/leaves/display&#x27;])
+            },
+            error: () &#x3D;&gt; this.msgError &#x3D; &#x27;Demande rejetée&#x27;
+          });
+      }
+    }
+  }
+
+
+  /**
+   * Methode permetant d&#x27;annuler la modification
+   * Retourne à la liste des demandes de congés sans intervention
+   */
+  cancel() {
+    this.router.navigate([&#x27;/leaves/display&#x27;]);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">  &lt;h2 class&#x3D;&quot;text-center mt-3&quot;&gt; Demande d&#x27;une absence &lt;/h2&gt;
+  &lt;form [formGroup]&#x3D;&quot;leaveForm&quot; (ngSubmit)&#x3D;&quot;submitForm()&quot;&gt;
+
+    &lt;div class&#x3D;&quot;col-sm-6 offset-sm-4&quot;&gt;
+      &lt;div class&#x3D;&quot;row col-6 align-center m-2&quot;&gt;
+        &lt;div class&#x3D;&quot;col-sm-6 m-1&quot;&gt;
+          &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+            &lt;mat-label&gt;Dates souhaitées&lt;/mat-label&gt;
+            &lt;mat-date-range-input [rangePicker]&#x3D;&quot;picker&quot; [min]&#x3D;&quot;minDate&quot;&gt;
+              &lt;input  matStartDate formControlName&#x3D;&quot;startDate&quot; required&#x3D;&quot;&quot; [min]&#x3D;&quot;minDate&quot;&gt;
+              &lt;input  matEndDate formControlName&#x3D;&quot;endDate&quot; required&#x3D;&quot;&quot;&gt;
+            &lt;/mat-date-range-input&gt;
+
+            &lt;mat-datepicker-toggle matSuffix [for]&#x3D;&quot;picker&quot;&gt;&lt;/mat-datepicker-toggle&gt;
+            &lt;mat-date-range-picker #picker&gt;&lt;/mat-date-range-picker&gt;
+            &lt;mat-error *ngIf&#x3D;&quot;leaveForm.controls[&#x27;startDate&#x27;].hasError(&#x27;required&#x27;)&quot;&gt;Veuillez saisir une date de début&lt;/mat-error&gt;
+            &lt;mat-error *ngIf&#x3D;&quot;leaveForm.controls[&#x27;endDate&#x27;].hasError(&#x27;required&#x27;)&quot;&gt;Veuillez saisir une date de fin&lt;/mat-error&gt;
+          &lt;/mat-form-field&gt;
+
+          &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+            &lt;mat-label&gt;Type de congé&lt;/mat-label&gt;
+            &lt;mat-select name&#x3D;&quot;leaveType&quot; formControlName&#x3D;&quot;leaveType&quot; required&#x3D;&quot;&quot; [errorStateMatcher]&#x3D;&quot;matcherType&quot; #typeLeave&gt;
+              &lt;mat-option *ngFor&#x3D;&quot;let type of leaveTypeEnum | enumToArray &quot; [value]&#x3D;&quot;type&quot;&gt;{{type | leaveType}}&lt;/mat-option&gt;
+            &lt;/mat-select&gt;
+            &lt;mat-error *ngIf&#x3D;&quot;leaveForm.controls[&#x27;leaveType&#x27;].hasError(&#x27;required&#x27;)&quot;&gt;Renseignez le type de congé&lt;/mat-error&gt;
+          &lt;/mat-form-field&gt;
+
+        &lt;div *ngIf&#x3D;&quot;typeLeave.value &#x3D;&#x3D; leaveTypeEnum.UNPAID_LEAVE&quot;&gt;
+          &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+            &lt;mat-label&gt;Motif&lt;/mat-label&gt;
+            &lt;textarea rows&#x3D;&quot;8&quot; matInput name&#x3D;&quot;motif&quot; id&#x3D;&quot;motif&quot; formControlName&#x3D;&quot;leaveReason&quot;  required&#x3D;&quot;&quot; [errorStateMatcher]&#x3D;&quot;matcherType&quot; &gt;&lt;/textarea&gt;
+            &lt;mat-error *ngIf&#x3D;&quot;leaveForm.controls[&#x27;leaveReason&#x27;].hasError(&#x27;required&#x27;)&quot;&gt;Motif requis pour ce type de congé&lt;/mat-error&gt;
+          &lt;/mat-form-field&gt;
+        &lt;/div&gt;
+        &lt;div *ngIf&#x3D;&quot;typeLeave.value !&#x3D; leaveTypeEnum.UNPAID_LEAVE&quot;&gt;
+          &lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+            &lt;mat-label&gt;Motif&lt;/mat-label&gt;
+            &lt;textarea rows&#x3D;&quot;8&quot; width&#x3D;&quot;50px&quot; matInput name&#x3D;&quot;motif&quot; id&#x3D;&quot;motif&quot; &gt;&lt;/textarea&gt;
+          &lt;/mat-form-field&gt;
+        &lt;/div&gt;
+          &lt;div class&#x3D;&quot;mt-1 aligne&quot;&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;primary&quot;&gt;Valider&lt;/button&gt;
+            &lt;button mat-raised-button color&#x3D;&quot;warn&quot; (click)&#x3D;&quot;cancel()&quot;&gt;Annuler&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./request-leave.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.aligne{
+	display:inline-flex;
+}
+
+button{
+  margin:10px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>  <h2 class="text-center mt-3"> Demande d\'une absence </h2>  <form [formGroup]="leaveForm" (ngSubmit)="submitForm()">    <div class="col-sm-6 offset-sm-4">      <div class="row col-6 align-center m-2">        <div class="col-sm-6 m-1">          <mat-form-field appearance="fill">            <mat-label>Dates souhaitées</mat-label>            <mat-date-range-input [rangePicker]="picker" [min]="minDate">              <input  matStartDate formControlName="startDate" required="" [min]="minDate">              <input  matEndDate formControlName="endDate" required="">            </mat-date-range-input>            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>            <mat-date-range-picker #picker></mat-date-range-picker>            <mat-error *ngIf="leaveForm.controls[\'startDate\'].hasError(\'required\')">Veuillez saisir une date de début</mat-error>            <mat-error *ngIf="leaveForm.controls[\'endDate\'].hasError(\'required\')">Veuillez saisir une date de fin</mat-error>          </mat-form-field>          <mat-form-field appearance="fill">            <mat-label>Type de congé</mat-label>            <mat-select name="leaveType" formControlName="leaveType" required="" [errorStateMatcher]="matcherType" #typeLeave>              <mat-option *ngFor="let type of leaveTypeEnum | enumToArray " [value]="type">{{type | leaveType}}</mat-option>            </mat-select>            <mat-error *ngIf="leaveForm.controls[\'leaveType\'].hasError(\'required\')">Renseignez le type de congé</mat-error>          </mat-form-field>        <div *ngIf="typeLeave.value == leaveTypeEnum.UNPAID_LEAVE">          <mat-form-field appearance="fill">            <mat-label>Motif</mat-label>            <textarea rows="8" matInput name="motif" id="motif" formControlName="leaveReason"  required="" [errorStateMatcher]="matcherType" ></textarea>            <mat-error *ngIf="leaveForm.controls[\'leaveReason\'].hasError(\'required\')">Motif requis pour ce type de congé</mat-error>          </mat-form-field>        </div>        <div *ngIf="typeLeave.value != leaveTypeEnum.UNPAID_LEAVE">          <mat-form-field appearance="fill">            <mat-label>Motif</mat-label>            <textarea rows="8" width="50px" matInput name="motif" id="motif" ></textarea>          </mat-form-field>        </div>          <div class="mt-1 aligne">            <button mat-raised-button color="primary">Valider</button>            <button mat-raised-button color="warn" (click)="cancel()">Annuler</button>          </div>        </div>      </div>    </div>  </form></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CompanyHolidayComponent', 'selector': 'app-company-holiday'},{'name': 'CreateCompanyHolidayComponent', 'selector': 'app-create-company-holiday'},{'name': 'DialogCompanyHolidayDelete', 'selector': 'dialog-company-holiday-delete'},{'name': 'DialogLeaveDelete', 'selector': 'dialog-leave-delete'},{'name': 'DisplayLeavesComponent', 'selector': 'app-display-leaves'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LeaveCountersComponent', 'selector': 'app-leave-counters'},{'name': 'LeavePlanningComponent', 'selector': 'app-leave-planning'},{'name': 'LeaveValidationComponent', 'selector': 'app-leave-validation'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'RequestComponent', 'selector': 'app-demande'}];
+    var DIRECTIVES = [{'name': 'DateValidatorDirective', 'selector': '[appDateValidator]'}];
+    var ACTUAL_COMPONENT = {'name': 'RequestComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RequestComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
