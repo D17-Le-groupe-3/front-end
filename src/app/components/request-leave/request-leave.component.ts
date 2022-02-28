@@ -4,7 +4,6 @@ import {LeaveType} from '../../models';
 import {Component, OnInit} from "@angular/core";
 import {AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
-import {Router} from '@angular/router';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {UserService} from "../../services/user.service";
 import { ActivatedRoute, Router } from '@angular/router';
