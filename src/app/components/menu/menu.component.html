@@ -14,7 +14,7 @@
           <a class="nav-link" routerLinkActive="active" [routerLink]="['leaves/display']">Gestion des absences</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/']">Planning des absences</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['leaves/planning']">Planning des absences</a>
         </li>
         <li *ngIf="role == 'MANAGER'" class="nav-item">
           <a class="nav-link" routerLinkActive="active" [routerLink]="['leaves/validate']">Validation des absences</a>
