@@ -32,7 +32,7 @@ export class Leave {
   status: LeaveStatus;
   user: User;
 
-  constructor(id: number, startDate: Date, endDate: Date, type: LeaveType, 
+  constructor(id: number, startDate: Date, endDate: Date, type: LeaveType,
     status: LeaveStatus,user : User) {
     this.id = id;
     this.startDate = new Date(startDate);
@@ -40,7 +40,7 @@ export class Leave {
     this.type = type;
     this.status = status;
     this.user = user;
-    
+
   }
 }
 
@@ -56,9 +56,8 @@ export interface LeaveDto {
 export interface ModifyLeaveDTO {
   startDate: DateTime,
   endDate: DateTime,
-  type: LeaveType,
   reason: string,
-  status: string
+  type: LeaveType
 }
 
 export enum LeaveType {
