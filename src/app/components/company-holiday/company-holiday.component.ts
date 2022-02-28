@@ -1,12 +1,13 @@
 import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
-import {CompanyHoliday, CompanyHolidayType, LeaveStatus} from "../../models";
+import {Router} from '@angular/router';
+import {CompanyHoliday, CompanyHolidayType, LeaveStatus, Role} from "../../models";
 import {CompanyHolidayService} from "../../services/company-holiday.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
 import {DateTime} from "luxon";
-import { Router } from '@angular/router';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-company-holiday',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./company-holiday.component.scss']
 })
 export class CompanyHolidayComponent implements OnInit, AfterViewInit {
+  role: Role | null = null;
   LeaveStatus = LeaveStatus;
   CompanyHolidayType = CompanyHolidayType;
   snackBarConfig: MatSnackBarConfig = {
@@ -26,11 +28,15 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
   selectedYear = new Date().getFullYear().toString();
 
   dataSource = new MatTableDataSource<CompanyHoliday>();
-  displayedColumns: string[] = ['date', 'type', 'day', 'comment', 'actions'];
+  displayedColumns: string[] = ['date', 'type', 'day', 'comment'];
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private service: CompanyHolidayService, public dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) { }
+  constructor(private userService: UserService, private service: CompanyHolidayService, public dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
+    this.role = this.userService.user!.role;
+    if (this.role == Role.ADMINISTRATOR)
+      this.displayedColumns.push('actions');
+  }
 
   ngOnInit(): void {
     this.getData();

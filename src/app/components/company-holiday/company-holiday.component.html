@@ -58,7 +58,7 @@
   </div>
 </div>
 
-<div class="row">
+<div *ngIf="role == 'ADMINISTRATOR'" class="row">
   <div class="col-8 offset-2 d-flex justify-content-end mt-3">
     <div>
       <h3 class="d-inline me-2">Ajouter un jour férié ou une RTT employeur</h3>

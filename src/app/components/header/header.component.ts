@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../../services/user.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -7,10 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  userFirstName: string = '';
 
-  constructor() { }
+  constructor(private userService: UserService, private router: Router) {
+    if (userService.user)
+      this.userFirstName = userService.user.firstName;
+  }
 
-  pseudo = "Untel";
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.userService.logout(() => {
+      this.userService.emitChange("logout done !");
+      this.router.navigateByUrl('login');
+    });
   }
 }

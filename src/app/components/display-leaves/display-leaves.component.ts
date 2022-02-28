@@ -6,8 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DateTime } from 'luxon';
 import { Leave, LeaveStatus, LeaveType } from 'src/app/models';
 import { LeavesService } from 'src/app/services/leaves.service';
+import {UserService} from "../../services/user.service";
 import { MAT_DIALOG_DATA, MatDialog,MatDialogRef } from '@angular/material/dialog';
-
 
 /**
  * Composant de gestion de l'affichage de la liste des demandes de congés
@@ -32,7 +32,8 @@ export class DisplayLeavesComponent implements OnInit {
     duration: 3000
   };
 
-  constructor(private leavesService: LeavesService, private snackBar: MatSnackBar, public dialog: MatDialog) {
+  constructor(private userService: UserService, private leavesService: LeavesService,
+              private snackBar: MatSnackBar, public dialog: MatDialog) {
     this.loadLeaves()
   }
 
@@ -47,7 +48,7 @@ export class DisplayLeavesComponent implements OnInit {
    */
  
   loadLeaves(){
-    this.leavesService.getLeavesByEmployee(2).subscribe({
+    this.leavesService.getLeavesByEmployee(this.userService.user!.id).subscribe({
       next: (leaves) => this.dataSource.data = leaves,
       error: (e) => console.log(e)
     });
