@@ -52,6 +52,15 @@ export interface LeaveDto {
   userId: number
 }
 
+
+export interface ModifyLeaveDTO {
+  startDate: DateTime,
+  endDate: DateTime,
+  type: LeaveType,
+  reason: string,
+  status: string
+}
+
 export enum LeaveType {
   PAID_LEAVE = 'PAID_LEAVE',
   UNPAID_LEAVE = 'UNPAID_LEAVE',

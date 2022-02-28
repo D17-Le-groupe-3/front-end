@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Department, Leave, LeaveDto} from "../models";
-import {Observable} from "rxjs";
-import {environment} from "../../environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Department, Leave, LeaveDto, ModifyLeaveDTO,  } from "../models";
+import { Observable } from "rxjs";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -28,11 +28,24 @@ export class LeavesService {
 
 
   /**
+   * Recherche une demande de congé  à partir de son id
+   * @param idLeave
+   * @returns
+   */
+  getLeaveById(idLeave: number): Observable<ModifyLeaveDTO> {
+    console.log('id dans service', idLeave);
+    return this.http.get<ModifyLeaveDTO>(environment.backendUrl + `/leaves/${idLeave}`);
+  }
+
+
+
+  /**
    * Methode permetant de supprimer une demande de congés
    * Apel l'API back-end via requete DELETE
    * @param idLeave : identifiant de la demande de congé.
    * @returns Observable d'un demande de congé comprenant les informations de la demande de congé supprimée.
    */
+
   deleteLeave(idLeave: number): Observable<Leave> {
     return this.http.delete<Leave>(environment.backendUrl + `/leaves/${idLeave}`);
   }
@@ -48,6 +61,7 @@ export class LeavesService {
     return this.http.get<Leave[]>(`${environment.backendUrl}/leaves?userId=${employeeId}&month=${month}&year=${year}`);
   }
   
+  /**
    * Méthode permetant de rechercher les demandes de congé pour un service
    * Apel de l'API back-end via une requète GET
    * @param department : id du département
@@ -83,5 +97,15 @@ export class LeavesService {
 
   postLeavesByEmployee(leave: LeaveDto) {
     return this.http.post<LeaveDto>(environment.backendUrl + "/leaves", leave);
+  }
+
+  /**
+   * Methode permetant de modifier une demande de congés
+   * @param id : identifiant de la demande
+   * @param leave : informations de la demande à modifier
+   * @returns demande de congé modifiée
+   */
+  modifyLeaves(id:number,leave: ModifyLeaveDTO) {
+    return this.http.put<LeaveDto>(environment.backendUrl + `/leaves/${id}`,{leave:leave});
   }
 }

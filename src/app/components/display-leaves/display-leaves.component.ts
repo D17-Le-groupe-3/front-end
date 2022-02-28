@@ -3,6 +3,7 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { DateTime } from 'luxon';
 import { Leave, LeaveStatus, LeaveType } from 'src/app/models';
 import { LeavesService } from 'src/app/services/leaves.service';
@@ -32,8 +33,9 @@ export class DisplayLeavesComponent implements OnInit {
     duration: 3000
   };
 
+
   constructor(private userService: UserService, private leavesService: LeavesService,
-              private snackBar: MatSnackBar, public dialog: MatDialog) {
+              private snackBar: MatSnackBar, public dialog: MatDialog,private router: Router) {
     this.loadLeaves()
   }
 
@@ -142,6 +144,19 @@ export class DisplayLeavesComponent implements OnInit {
     return flagIsDesabled;
   }
 
+
+  newLeave(){
+    this.router.navigate(['/leaves/request']);
+  }
+
+  /**
+   * Methode de redirection vers le formulaire de modification
+   * @param row
+   */
+  editLeave(row:Leave){
+    console.log(this.router);
+    this.router.navigate(['/leaves/request'],{ queryParams: {"leaveId": row.id}});
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;

@@ -37,7 +37,7 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button color="primary" [disabled]="disableModify(element)">
+          <button mat-icon-button color="primary" [disabled]="disableModify(element)"  (click)="editLeave(element)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button color="primary" [disabled]="disableDelete(element)"
@@ -59,9 +59,10 @@
     <app-leave-counters></app-leave-counters>
     <div>
       <h3 class="d-inline me-2">Demander une absence</h3>
-      <button mat-raised-button color="primary" [routerLink]="['/leaves/request']">
+
+      <a button mat-raised-button color="primary"  (click)="newLeave()">
         <mat-icon>add</mat-icon>
-      </button>
+      </a>
     </div>
   </div>
 </div>
