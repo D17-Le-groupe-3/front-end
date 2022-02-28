@@ -94,7 +94,7 @@ initFormgroup(){
           endDate: this.leaveForm.value.endDate,
           type: this.leaveForm.value.leaveType,
           reason: this.leaveForm.value.leaveReason,
-          userId: 2
+          userId: this.userService.user!.id
         })
           .subscribe({
             next: () => {
