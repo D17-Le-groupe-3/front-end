@@ -1,11 +1,13 @@
 import { Leave, LeaveDto, ModifyLeaveDTO } from 'src/app/models';
-import { LeavesService } from 'src/app/services/leaves.service';
-import { LeaveType } from '../../models';
-import { Component, OnInit } from "@angular/core";
-import { AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import {LeavesService} from 'src/app/services/leaves.service';
+import {LeaveType} from '../../models';
+import {Component, OnInit} from "@angular/core";
+import {AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {UserService} from "../../services/user.service";
 import { ActivatedRoute, Router } from '@angular/router';
-import { ErrorStateMatcher } from '@angular/material/core';
 
 /**
  * Contrôle si il n'y a pas d'erreurs dans le formulaire
@@ -40,11 +42,12 @@ export class RequestComponent implements OnInit {
   leaveToModify!: ModifyLeaveDTO;
   leaveToModifyId!: number;
 
-  constructor(private reqLeave: LeavesService, private snackBar: MatSnackBar, private router: Router, private route: ActivatedRoute) {
+
+  constructor(private userService: UserService, private reqLeave: LeavesService, private snackBar: MatSnackBar, private router: Router, private route: ActivatedRoute) {
     this.initFormgroup();
   }
 
-  initFormgroup() {
+initFormgroup(){
     this.leaveForm = new FormGroup({
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
@@ -74,6 +77,7 @@ export class RequestComponent implements OnInit {
       }
     })
   }
+
 
   /**
    * Methoded'enregistrement des informations renseignées.
@@ -122,6 +126,7 @@ export class RequestComponent implements OnInit {
       }
     }
   }
+
 
   /**
    * Methode permetant d'annuler la modification

@@ -1,9 +1,6 @@
-<div class="container-xxl border shadow-lg">
-  <div class="row">
-    <app-header></app-header>
-  </div>
-  <div class="row">
-    <router-outlet></router-outlet>
-
-  </div>
+<div class="container-xxl shadow-lg">
+    <app-header *ngIf="isLoggedIn"></app-header>
+    <div class="p-3">
+      <router-outlet></router-outlet>
+    </div>
 </div>

@@ -15,7 +15,7 @@
 
       <ng-container matColumnDef="type">
         <th mat-header-cell *matHeaderCellDef>Type</th>
-        <td mat-cell *matCellDef="let leave"> {{ leave.type // TODO: add pipe }} </td>
+        <td mat-cell *matCellDef="let leave"> {{ leave.type | leaveTypeLabel}} </td>
       </ng-container>
 
       <ng-container matColumnDef="userFullName">
