@@ -38,6 +38,16 @@ export class LeavesService {
   }
 
   /**
+   * Récupère la liste des congés pour un utilisateur, mois et année donnés
+   * @param employeeId id de l'employé
+   * @param month mois
+   * @param year année
+   * @returns liste des congés du mois
+   */
+  getLeavesByEmployeeMonthAndYear(employeeId: number, month: number, year: number): Observable<Leave[]> {
+    return this.http.get<Leave[]>(`${environment.backendUrl}/leaves?userId=${employeeId}&month=${month}&year=${year}`);
+  }
+  
    * Méthode permetant de rechercher les demandes de congé pour un service
    * Apel de l'API back-end via une requète GET
    * @param department : id du département
