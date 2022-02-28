@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
+import {Router} from '@angular/router';
 import {CompanyHoliday, CompanyHolidayType, LeaveStatus, Role} from "../../models";
 import {CompanyHolidayService} from "../../services/company-holiday.service";
 import {MatTableDataSource} from "@angular/material/table";
@@ -31,7 +32,7 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private userService: UserService, private service: CompanyHolidayService, public dialog: MatDialog, private snackBar: MatSnackBar) {
+  constructor(private userService: UserService, private service: CompanyHolidayService, public dialog: MatDialog, private snackBar: MatSnackBar, private router: Router) {
     this.role = this.userService.user!.role;
     if (this.role == Role.ADMINISTRATOR)
       this.displayedColumns.push('actions');
@@ -91,6 +92,10 @@ export class CompanyHolidayComponent implements OnInit, AfterViewInit {
   isDisabled(holiday: CompanyHoliday) {
     return DateTime.fromJSDate(new Date(holiday.date)) < DateTime.now()
       || (holiday.type == CompanyHolidayType.COMPANY_RTT && holiday.status == LeaveStatus.VALIDATED);
+  }
+
+  createCompanyHoliday(){
+    this.router.navigate(['company-holiday/create'])
   }
 }
 

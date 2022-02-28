@@ -4,7 +4,9 @@ import {DisplayLeavesComponent} from './components/display-leaves/display-leaves
 import {HomeComponent} from "./components/home/home.component";
 import {CompanyHolidayComponent} from "./components/company-holiday/company-holiday.component";
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
+import {LeavePlanningComponent} from './components/leave-planning/leave-planning.component';
 import {RequestComponent} from './components/request-leave/request-leave.component';
+import { CreateCompanyHolidayComponent } from './components/create-company-holiday/create-company-holiday.component';
 import {LoginComponent} from "./components/login/login.component";
 import {IsLoggedInGuard} from "./guards/is-logged-in.guard";
 import {IsNotLoggedInGuard} from "./guards/is-not-logged-in.guard";
@@ -16,7 +18,9 @@ const routes: Routes = [
   { path: 'leaves/display', component: DisplayLeavesComponent, canActivate: [IsLoggedInGuard] },
   { path: 'leaves/request', component: RequestComponent, canActivate: [IsLoggedInGuard] },
   { path: 'leaves/validate', component: LeaveValidationComponent, canActivate: [IsLoggedInGuard] },
-  { path: 'company-holiday', component: CompanyHolidayComponent, canActivate: [IsLoggedInGuard] }
+  { path: 'leaves/planning', component: LeavePlanningComponent, canActivate: [IsLoggedInGuard] },
+  { path: 'company-holiday', component: CompanyHolidayComponent, canActivate: [IsLoggedInGuard] },
+  { path: 'company-holiday/create', component: CreateCompanyHolidayComponent, canActivate: [IsLoggedInGuard] }
 ];
 
 @NgModule({
