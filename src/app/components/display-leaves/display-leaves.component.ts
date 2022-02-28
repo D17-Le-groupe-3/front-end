@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { DateTime } from 'luxon';
 import { Leave, LeaveStatus, LeaveType } from 'src/app/models';
 import { LeavesService } from 'src/app/services/leaves.service';
@@ -25,7 +26,7 @@ export class DisplayLeavesComponent implements OnInit {
     duration: 3000
   };
 
-  constructor(private leavesService: LeavesService, private snackBar: MatSnackBar) {
+  constructor(private leavesService: LeavesService, private snackBar: MatSnackBar, private router: Router) {
     this.loadLeaves()
   }
 
@@ -85,6 +86,23 @@ export class DisplayLeavesComponent implements OnInit {
       flagIsDesabled = true;
     }
     return flagIsDesabled;
+  }
+
+  /**
+   * Methode d'ajout d'une nouvelle demande de congé.
+   * Renvoie sur la page de création.
+   */
+  newLeave(){
+    this.router.navigate(['/leaves/request']);
+  }
+
+  /**
+   * Methode de redirection vers le formulaire de modification
+   * @param row
+   */
+  editLeave(row:Leave){
+    console.log(this.router);
+    this.router.navigate(['/leaves/request'],{ queryParams: {"leaveId": row.id}});
   }
 
   ngAfterViewInit(): void {
