@@ -1,9 +1,10 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {Department, Leave, LeaveStatus} from "../../models";
+import {Leave, LeaveStatus} from "../../models";
 import {MatSort} from "@angular/material/sort";
 import {LeavesService} from "../../services/leaves.service";
 import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-leave-validation',
@@ -11,7 +12,6 @@ import {MatSnackBar, MatSnackBarConfig} from "@angular/material/snack-bar";
   styleUrls: ['./leave-validation.component.scss']
 })
 export class LeaveValidationComponent implements OnInit, AfterViewInit {
-  userDep: Department = {id:1, label:'Management'};
   pendingValidationStatus = LeaveStatus.PENDING_VALIDATION;
   snackBarConfig: MatSnackBarConfig = {
     horizontalPosition: 'center',
@@ -24,7 +24,7 @@ export class LeaveValidationComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private service: LeavesService, private snackBar: MatSnackBar) { }
+  constructor(private userService: UserService, private service: LeavesService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getData();
@@ -35,7 +35,7 @@ export class LeaveValidationComponent implements OnInit, AfterViewInit {
   }
 
   getData(): void {
-    this.service.getToValidateByDepartment(this.userDep)
+    this.service.getToValidateByDepartment(this.userService.user!.department)
       .subscribe(leaves => this.dataSource.data = leaves);
   }
 

@@ -1,8 +1,17 @@
-import { DateTime } from 'luxon';
+import {DateTime} from 'luxon';
 
 export interface User {
+  id: number,
   firstName: string,
-  lastName: string
+  lastName: string,
+  role: Role,
+  department: Department
+}
+
+export enum Role {
+  ADMINISTRATOR = 'ADMINISTRATOR',
+  EMPLOYEE = 'EMPLOYEE',
+  MANAGER = 'MANAGER',
 }
 
 export interface Credentials {

@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   credentials: Credentials = { email: '', password: '' };
+  hasError = false;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -17,8 +18,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.userService.authenticate(this.credentials, () => {
-      this.router.navigateByUrl('/');
+    this.userService.authenticate(this.credentials, (success) => {
+      if (success) {
+        this.userService.emitChange("auth done !");
+        this.router.navigateByUrl('/');
+      }
+      else
+        this.hasError = true;
     })
     return false;
   }

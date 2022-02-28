@@ -7,11 +7,11 @@ import {UserService} from "./services/user.service";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'digiday';
+  isLoggedIn = false;
 
   constructor(private userService: UserService) {
-    this.userService.authenticate(undefined, undefined);
+    userService.changeEmitted.subscribe(() => {
+      this.isLoggedIn = userService.authenticated;
+    })
   }
-
-
 }

@@ -1,6 +1,6 @@
-<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+<nav class="navbar navbar-dark bg-color-primary navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Digiday</a>
+    <a class="navbar-brand" [routerLink]="['/']">Digiday</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,22 +8,22 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">Accueil</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['home']">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" [routerLink]="['leaves/display']">Gestion des absences</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['leaves/display']">Gestion des absences</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">Planning des absences</a>
+          <a class="nav-link" [routerLink]="['/']">Planning des absences</a>
+        </li>
+        <li *ngIf="role == 'MANAGER'" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['leaves/validate']">Validation des absences</a>
+        </li>
+        <li *ngIf="role == 'MANAGER'" class="nav-item">
+          <a class="nav-link" [routerLink]="['/']">Vue synthétique</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">Validation des absences</a>
-        </li>
-        <li *ngIf="profil=='manager'" class="nav-item">
-          <a class="nav-link " aria-current="page" href="#"> Vue synthétique</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" [routerLink]="['company-holiday']">Jours fériés</a>
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['company-holiday']">Jours fériés</a>
         </li>
       </ul>
     </div>

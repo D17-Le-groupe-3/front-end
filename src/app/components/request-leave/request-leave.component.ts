@@ -1,10 +1,11 @@
-import { LeavesService } from 'src/app/services/leaves.service';
-import { LeaveType } from '../../models';
-import { Component, OnInit} from "@angular/core";
-import { AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { ErrorStateMatcher } from '@angular/material/core';
+import {LeavesService} from 'src/app/services/leaves.service';
+import {LeaveType} from '../../models';
+import {Component, OnInit} from "@angular/core";
+import {AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
+import {Router} from '@angular/router';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {UserService} from "../../services/user.service";
 
 /**
  * Contrôle si il n'y a pas d'erreurs dans le formulaire
@@ -35,7 +36,7 @@ export class RequestComponent implements OnInit{
   };
   minDate = new Date();
 
-  constructor(private reqLeave: LeavesService, private snackBar: MatSnackBar, private router: Router){
+  constructor(private userService: UserService, private reqLeave: LeavesService, private snackBar: MatSnackBar, private router: Router){
     this.leaveForm = new FormGroup({
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
@@ -59,7 +60,7 @@ export class RequestComponent implements OnInit{
       endDate: this.leaveForm.value.endDate,
       type: this.leaveForm.value.leaveType,
       reason: this.leaveForm.value.leaveReason,
-      userId: 2
+      userId: this.userService.user!.id
 
     })
     .subscribe({next: () => {

@@ -1,12 +1,11 @@
-import { NodeWithI18n } from '@angular/compiler';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { DateTime } from 'luxon';
-import { Leave, LeaveStatus, LeaveType } from 'src/app/models';
-import { LeavesService } from 'src/app/services/leaves.service';
-
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import {DateTime} from 'luxon';
+import {Leave, LeaveStatus} from 'src/app/models';
+import {LeavesService} from 'src/app/services/leaves.service';
+import {UserService} from "../../services/user.service";
 
 
 @Component({
@@ -25,7 +24,7 @@ export class DisplayLeavesComponent implements OnInit {
     duration: 3000
   };
 
-  constructor(private leavesService: LeavesService, private snackBar: MatSnackBar) {
+  constructor(private userService: UserService, private leavesService: LeavesService, private snackBar: MatSnackBar) {
     this.loadLeaves()
   }
 
@@ -33,7 +32,7 @@ export class DisplayLeavesComponent implements OnInit {
   }
 
   loadLeaves(){
-    this.leavesService.getLeavesByEmployee(2).subscribe({
+    this.leavesService.getLeavesByEmployee(this.userService.user!.id).subscribe({
       next: (leaves) => this.dataSource.data = leaves,
       error: (e) => console.log(e)
     });
