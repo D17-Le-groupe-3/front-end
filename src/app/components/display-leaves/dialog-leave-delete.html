@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Souhaitez vous confirmer cette suppression ?</h2>
+<mat-dialog-content class="mat-typography">
+  <p>La demande de congé de {{leave.type| leaveTypeLabel}} (  {{leave.status | leaveStatusLabel}} ) du  {{leave.startDate| date:'shortDate'}} au  {{leave.endDate| date:'shortDate'}}  va être supprimée</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button  [mat-dialog-close]="false">Annuler</button>
+  <button mat-button color="warn" [mat-dialog-close]="true">Confirmer</button>
+</mat-dialog-actions>
