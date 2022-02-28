@@ -26,6 +26,8 @@ import {HomeComponent} from './components/home/home.component';
 import {CompanyHolidayComponent, DialogCompanyHolidayDelete} from './components/company-holiday/company-holiday.component';
 import {DisplayLeavesComponent} from './components/display-leaves/display-leaves.component';
 import {LeaveValidationComponent} from "./components/leave-validation/leave-validation.component";
+import { DialogLeaveDelete } from './components/display-leaves/display-leaves.component';
+
 import { RequestComponent } from './components/request-leave/request-leave.component';
 import { LeaveCountersComponent } from './components/leave-counters/leave-counters.component';
 import { LeavePlanningComponent } from './components/leave-planning/leave-planning.component';
@@ -37,6 +39,7 @@ import { RequestLeaveTypePipe } from './pipes/request-leave-type.pipe';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import { MatLuxonDateModule, MAT_LUXON_DATE_ADAPTER_OPTIONS } from '@angular/material-luxon-adapter';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -59,6 +62,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     RequestLeaveTypePipe,
     EnumToArrayPipe,
     LeaveValidationComponent,
+    DialogLeaveDelete
     LeavePlanningComponent,
     LeaveCountersComponent
   ],
@@ -77,7 +81,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatSelectModule,
     MatDialogModule,
     MatTooltipModule,
-    MatButtonModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
