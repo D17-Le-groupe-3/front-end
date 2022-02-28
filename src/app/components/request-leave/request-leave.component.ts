@@ -1,11 +1,11 @@
 import { Leave, LeaveDto, ModifyLeaveDTO } from 'src/app/models';
-import {LeavesService} from 'src/app/services/leaves.service';
-import {LeaveType} from '../../models';
-import {Component, OnInit} from "@angular/core";
-import {AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material/snack-bar';
-import {ErrorStateMatcher} from '@angular/material/core';
-import {UserService} from "../../services/user.service";
+import { LeavesService } from 'src/app/services/leaves.service';
+import { LeaveType } from '../../models';
+import { Component, OnInit } from "@angular/core";
+import { AbstractControl, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { UserService } from "../../services/user.service";
 import { ActivatedRoute, Router } from '@angular/router';
 
 /**
@@ -46,7 +46,7 @@ export class RequestComponent implements OnInit {
     this.initFormgroup();
   }
 
-initFormgroup(){
+  initFormgroup() {
     this.leaveForm = new FormGroup({
       startDate: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required]),
@@ -64,6 +64,7 @@ initFormgroup(){
       if (this.leaveToModifyId) {
         this.reqLeave.getLeaveById(this.leaveToModifyId).subscribe((result) => {
           if (result) {
+            this.actionMode = "modification";
             this.leaveToModify = result;
             this.leaveForm.setValue({
               startDate: this.leaveToModify.startDate,
@@ -111,8 +112,7 @@ initFormgroup(){
           startDate: this.leaveForm.value.startDate,
           endDate: this.leaveForm.value.endDate,
           type: this.leaveForm.value.leaveType,
-          reason: this.leaveForm.value.leaveReason,
-          status: this.leaveToModify.status
+          reason: this.leaveForm.value.leaveReason
         })
           .subscribe({
             next: () => {
@@ -125,7 +125,6 @@ initFormgroup(){
       }
     }
   }
-
 
   /**
    * Methode permetant d'annuler la modification

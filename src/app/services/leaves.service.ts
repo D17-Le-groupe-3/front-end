@@ -60,7 +60,7 @@ export class LeavesService {
   getLeavesByEmployeeMonthAndYear(employeeId: number, month: number, year: number): Observable<Leave[]> {
     return this.http.get<Leave[]>(`${environment.backendUrl}/leaves?userId=${employeeId}&month=${month}&year=${year}`);
   }
-  
+
   /**
    * Méthode permetant de rechercher les demandes de congé pour un service
    * Apel de l'API back-end via une requète GET
@@ -105,7 +105,7 @@ export class LeavesService {
    * @param leave : informations de la demande à modifier
    * @returns demande de congé modifiée
    */
-  modifyLeaves(id:number,leave: ModifyLeaveDTO) {
-    return this.http.put<LeaveDto>(environment.backendUrl + `/leaves/${id}`,{leave:leave});
+  modifyLeaves(id:number,leave: ModifyLeaveDTO):Observable<Leave> {
+    return this.http.put<Leave>(environment.backendUrl + `/leaves/${id}`,leave);
   }
 }

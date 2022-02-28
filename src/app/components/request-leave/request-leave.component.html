@@ -28,14 +28,14 @@
         <div *ngIf="typeLeave.value == leaveTypeEnum.UNPAID_LEAVE">
           <mat-form-field appearance="fill">
             <mat-label>Motif</mat-label>
-            <textarea rows="8" matInput name="motif" id="motif" formControlName="leaveReason"  required="" [errorStateMatcher]="matcherType" ></textarea>
+            <textarea rows="8" matInput name="leaveReason" id="leaveReason" formControlName="leaveReason"  required="" [errorStateMatcher]="matcherType" ></textarea>
             <mat-error *ngIf="leaveForm.controls['leaveReason'].hasError('required')">Motif requis pour ce type de congé</mat-error>
           </mat-form-field>
         </div>
         <div *ngIf="typeLeave.value != leaveTypeEnum.UNPAID_LEAVE">
           <mat-form-field appearance="fill">
             <mat-label>Motif</mat-label>
-            <textarea rows="8" width="50px" matInput name="motif" id="motif" ></textarea>
+            <textarea rows="8" width="50px" matInput name="leaveReason" id="leaveReason" ></textarea>
           </mat-form-field>
         </div>
           <div class="mt-1 aligne">
