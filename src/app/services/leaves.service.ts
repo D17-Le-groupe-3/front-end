@@ -61,6 +61,7 @@ export class LeavesService {
     return this.http.get<Leave[]>(`${environment.backendUrl}/leaves?userId=${employeeId}&month=${month}&year=${year}`);
   }
   
+  /**
    * Méthode permetant de rechercher les demandes de congé pour un service
    * Apel de l'API back-end via une requète GET
    * @param department : id du département
